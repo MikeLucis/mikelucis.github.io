@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Mike lucis"><title>关于HTML中的 !DOCTYPE 声明 · Mikelucis的技术博客</title><meta name="description" content="¶ 关于HTML中的 &amp;lt;!DOCTYPE&amp;gt; 声明
+今天在完成课程任务时，我的HTML代码中一处出现了一个问题。
+我现在有三张图片，这三张图片是从一张图片无缝裁剪下来的，这三张图片均等宽不等高，若使用PS可完美拼接回原图。我在表格内，将此三张图片放入，当浏览器运行时，我发现此三图片并未完美"><meta name="keywords" content="技术,博客,Blog,编程,学习,HTML,Python,Linux,基础"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">保持清醒，不断思考。</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Mike lucis</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">Home</a></li><li><a href="/archives">Archive</a></li><li><a href="/categories">Categories</a></li><li><a href="/tags">Tags</a></li><li><a href="/e9-a6-96-e9-a1-b5/index.html">首页</a></li><li><a href="/e5-8d-9a-e5-ae-a2/index.html">博客</a></li><li><a href="/e8-81-94-e7-b3-bb/index.html">联系</a></li><li><a href="/e5-85-b3-e4-ba-8e/index.html">关于</a></li><li class="soc"><a href="https://github.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="https://twitter.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">&nbsp;</i></a><a href="http://weibo.com/u/5026640622" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo">&nbsp;</i></a><a href="http://mikelucis.site/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="http://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>关于HTML中的 !DOCTYPE 声明</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2020-05-19</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/HTML/" title="HTML" class="a-tag">HTML</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/HTML/" title="HTML" class="a-tag">HTML</a><span>&nbsp;</span><a href="/tags/Web/" title="Web" class="a-tag">Web</a><span>&nbsp;</span><a href="/tags/前端/" title="前端" class="a-tag">前端</a><span>&nbsp;</span><a href="/tags/标签/" title="标签" class="a-tag">标签</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="关于HTML中的 &lt;!DOCTYPE&gt; 声明"><a class="header-anchor" href="#关于HTML中的 &lt;!DOCTYPE&gt; 声明">¶</a> 关于HTML中的 &lt;!DOCTYPE&gt; 声明</h1>
+<p>今天在完成课程任务时，我的HTML代码中一处出现了一个问题。</p>
+<p>我现在有三张图片，这三张图片是从一张图片无缝裁剪下来的，这三张图片均等宽不等高，若使用PS可完美拼接回原图。我在表格内，将此三张图片放入，当浏览器运行时，我发现此三图片并未完美紧密贴合，而是两两之间有着空隙。</p>
+<p><img src="https://i.loli.net/2020/05/19/pNX6hF3AZvBdTHz.jpg" alt="question"></p>
+<h5 id="源代码："><a class="header-anchor" href="#源代码：">¶</a> 源代码：</h5>
+<pre><code>#time 2020-05-19
+
+&lt;!DOCTYPE&gt;
+&lt;html&gt;
+  &lt;head&gt;
+        &lt;title&gt;...&lt;/title&gt;
+  &lt;/head&gt;
+   &lt;body&gt;
+     &lt;table width=&quot;457&quot; height=&quot;263&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+        &lt;tbody&gt;
+           &lt;tr&gt;
+              &lt;td&gt;
+                  &lt;img src=&quot;h2.gif&quot; width=&quot;457&quot; height=&quot;90&quot; alt=&quot;&quot;/&gt;
+                  &lt;img src=&quot;h3.gif&quot; width=&quot;457&quot; height=&quot;71&quot; alt=&quot;&quot;/&gt;
+                  &lt;img src=&quot;h4.gif&quot; width=&quot;457&quot; height=&quot;102&quot; alt=&quot;&quot;/&gt;
+               &lt;/td&gt;
+           &lt;/tr&gt;
+         &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>以上就是出现此问题处源代码大致的框架，</p>
+<p>详细可见表格标签中已明确声明宽高，且spacing也为0，那是什么原因导致出现排版混乱的情况呢。</p>
+<p>说到这，我们就要提到一个重要的标签 :</p>
+<pre><code>&lt;!DOCTYPE&gt;
+</code></pre>
+<p><strong>DOCTYPE是Document Type（文档类型）的简写，要想制作符合标准的页面，一个必不可少的关键组成部分就是DOCTYPE声明。</strong></p>
+<ul>
+<li>
+<p>!DOCTYPE 声明标签处于HTML首行，其作用是声明本HTML文档的解析类型(document.compatMode)，从而使浏览器正确识别文档应该以哪种模式渲染。避免以浏览器的怪异模式进行渲染。</p>
+</li>
+<li>
+<p>其不是一个真正的HTML 标签；它是用来告知 Web 浏览器页面使用了哪种 HTML 版本；故 !DOCTYPE 没有结束标签，同时也对大小写不敏感。</p>
+</li>
+<li>
+<p>（ HTML 4.01 中，&lt;!DOCTYPE&gt; 声明需引用 DTD （文档类型声明），因为 HTML 4.01 是基于 SGML （Standard Generalized Markup Language 标准通用标记语言）。DTD 指定了标记语言的规则，确保了浏览器能够正确的渲染内容；）</p>
+</li>
+<li>
+<p>（HTML5 不是基于 SGML，因此不要求引用 DTD；）</p>
+<p>CSS1Compat：标准模式，浏览器使用W3C的标准解析渲染页面；<br>
+BackCompat：怪异模式，浏览器使用自己的怪异模式解析渲染页面。</p>
+</li>
+</ul>
+<p>此处我的文档HTML版本是4.1版本的，我却使用了HTML5的声明，浏览器检测出错便默认使用了BackCompat模式进行网页渲染，难怪文档排版出现了问题。</p>
+<p>我们将声明修改成Transitional过渡模式，即告诉浏览器文档的正确模式，避免浏览器进入转换显示模式（怪异模式）。</p>
+<p>文档排版恢复正常，问题解决。</p>
+<p><img src="https://i.loli.net/2020/05/19/knsXTC7ND1lYJwH.jpg" alt="yesright"></p>
+<p>当然也有其他方法：</p>
+<ul>
+<li>
+<p>图片标签样式\属性：</p>
+<ul>
+<li>
+<pre><code>  style=“margin-top：-4px” 
+  （数值具情况调整）
+</code></pre>
+</li>
+<li>
+<pre><code>  .img {border:0px; margain:0px; padding:0px }
+  或
+  .img {padding: 0; margin: 0;}
+  （数值具情况调整）
+</code></pre>
+</li>
+<li>
+<pre><code>  vertical-align: middle; 
+  元素的垂直对齐方式
+</code></pre>
+</li>
+<li>
+<pre><code>  display:block; 
+  把标签转换成块级元素
+</code></pre>
+</li>
+<li>
+<pre><code>  line-height:0;   
+  # 给img添加一个父级 div ,并添加 line-height:
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="常见的 DOCTYPE 声明"><a class="header-anchor" href="#常见的 DOCTYPE 声明">¶</a> 常见的 DOCTYPE 声明</h4>
+<h3 id="HTML 5"><a class="header-anchor" href="#HTML 5">¶</a> HTML 5</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+</code></pre>
+<h3 id="HTML 4.1"><a class="header-anchor" href="#HTML 4.1">¶</a> HTML 4.1</h3>
+<p>（HTML4.01中有3种DTD（文档类型定义）声明可以选择：过渡的（Transitional）、严格的（Strict）和框架的（Frameset)）</p>
+<p><strong>HTML4.01 Transitional</strong></p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+# 写给浏览器，避免浏览器进入转换显示模式。（过渡）
+</code></pre>
+<p><strong>HTML4.01 Strict</strong></p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
+# 严格模式。
+</code></pre>
+<p><strong>HTML4.01 Frameset</strong></p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
+# 框架模式
+</code></pre>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"></p></div><div class="share"><span>Share</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://mikelucis.site/e5-85-b3-e4-ba-8ehtml-e4-b8-ad-e7-9a-84-e5-a3-b0-e6-98-8e/2020/05/19/%20Mikelucis的技术博客%20关于HTML中的 !DOCTYPE 声明" target="_blank" rel="noopener" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/hello-world/2020/06/24/" title="Hello World"><i class="fa fa-angle-double-left"></i>&nbsp;Previous post: Hello World</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/e5-85-b3-e4-ba-8e-e6-97-a7-e7-ab-99-e7-82-b9-e6-9b-b4-e6-96-b0-e7-9a-84-e8-af-b4-e6-98-8e/2020/05/16/" title="关于旧站点更新的说明">Next post: 关于旧站点更新的说明&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="http://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

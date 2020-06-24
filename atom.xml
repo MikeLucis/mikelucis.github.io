@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mikelucis的技术博客</title>
+  
+  <subtitle>保持清醒，不断思考。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://mikelucis.site/"/>
+  <updated>2020-06-24T07:26:20.892Z</updated>
+  <id>http://mikelucis.site/</id>
+  
+  <author>
+    <name>Mike lucis</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://mikelucis.site/hello-world/2020/06/24/"/>
+    <id>http://mikelucis.site/hello-world/2020/06/24/</id>
+    <published>2020-06-24T07:26:20.892Z</published>
+    <updated>2020-06-24T07:26:20.892Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于HTML中的 !DOCTYPE 声明</title>
+    <link href="http://mikelucis.site/e5-85-b3-e4-ba-8ehtml-e4-b8-ad-e7-9a-84-e5-a3-b0-e6-98-8e/2020/05/19/"/>
+    <id>http://mikelucis.site/e5-85-b3-e4-ba-8ehtml-e4-b8-ad-e7-9a-84-e5-a3-b0-e6-98-8e/2020/05/19/</id>
+    <published>2020-05-19T10:59:03.000Z</published>
+    <updated>2020-06-24T07:47:00.180Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;关于HTML中的 &amp;lt;!DOCTYPE&amp;gt; 声明&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#关于HTML中的 &amp;lt;!DOCTYPE&amp;gt; 声明&quot;&gt;¶&lt;/a&gt; 关于HTML中的 &amp;lt;!DOCTYPE&amp;gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="HTML" scheme="http://mikelucis.site/categories/HTML/"/>
+    
+    
+      <category term="HTML" scheme="http://mikelucis.site/tags/HTML/"/>
+    
+      <category term="Web" scheme="http://mikelucis.site/tags/Web/"/>
+    
+      <category term="前端" scheme="http://mikelucis.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="标签" scheme="http://mikelucis.site/tags/%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于旧站点更新的说明</title>
+    <link href="http://mikelucis.site/e5-85-b3-e4-ba-8e-e6-97-a7-e7-ab-99-e7-82-b9-e6-9b-b4-e6-96-b0-e7-9a-84-e8-af-b4-e6-98-8e/2020/05/16/"/>
+    <id>http://mikelucis.site/e5-85-b3-e4-ba-8e-e6-97-a7-e7-ab-99-e7-82-b9-e6-9b-b4-e6-96-b0-e7-9a-84-e8-af-b4-e6-98-8e/2020/05/16/</id>
+    <published>2020-05-16T11:30:46.000Z</published>
+    <updated>2020-06-24T07:47:00.180Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;建站小结&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#建站小结&quot;&gt;¶&lt;/a&gt; 建站小结&lt;/h2&gt;
+&lt;h6 id=&quot;生命在于折腾！&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#生命在于折腾！&quot;&gt;¶&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="历史事件" scheme="http://mikelucis.site/categories/%E5%8E%86%E5%8F%B2%E4%BA%8B%E4%BB%B6/"/>
+    
+    
+      <category term="本站" scheme="http://mikelucis.site/tags/%E6%9C%AC%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>世界，您好！</title>
+    <link href="http://mikelucis.site/hello-world-1/2020/04/17/"/>
+    <id>http://mikelucis.site/hello-world-1/2020/04/17/</id>
+    <published>2020-04-17T12:31:17.000Z</published>
+    <updated>2020-06-24T07:47:00.179Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Hello world！&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Hello world！&quot;&gt;¶&lt;/a&gt; &lt;strong&gt;Hello world！&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;欢迎来到此网站！&lt;/p&gt;
+&lt;p&gt;这是刘世杰的主站点:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="历史事件" scheme="http://mikelucis.site/categories/%E5%8E%86%E5%8F%B2%E4%BA%8B%E4%BB%B6/"/>
+    
+    
+  </entry>
+  
+</feed>

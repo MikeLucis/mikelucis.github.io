@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Mike lucis"><title>关于旧站点更新的说明 · Mikelucis的技术博客</title><meta name="description" content="¶ 建站小结
+¶ 生命在于折腾！
+继上次搭建个人技术博客Mikelucis.site [^ 基于Hexo]后，我在实际操作过程中发现了一些问题
+
+首先说明此次搭建以服务器端（Linux）为开发环境，既是管理平台，也是部署平台（这导致了我后续维护时产生了一系列问题，下文说明）
+
+在提出问题前说几句He"><meta name="keywords" content="技术,博客,Blog,编程,学习,HTML,Python,Linux,基础"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">保持清醒，不断思考。</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Mike lucis</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">Home</a></li><li><a href="/archives">Archive</a></li><li><a href="/categories">Categories</a></li><li><a href="/tags">Tags</a></li><li><a href="/e9-a6-96-e9-a1-b5/index.html">首页</a></li><li><a href="/e5-8d-9a-e5-ae-a2/index.html">博客</a></li><li><a href="/e8-81-94-e7-b3-bb/index.html">联系</a></li><li><a href="/e5-85-b3-e4-ba-8e/index.html">关于</a></li><li class="soc"><a href="https://github.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="https://twitter.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">&nbsp;</i></a><a href="http://weibo.com/u/5026640622" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo">&nbsp;</i></a><a href="http://mikelucis.site/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="http://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>关于旧站点更新的说明</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2020-05-16</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/历史事件/" title="历史事件" class="a-tag">历史事件</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/本站/" title="本站" class="a-tag">本站</a><span>&nbsp;</span></span></p><p class="post-abstract"><h2 id="建站小结"><a class="header-anchor" href="#建站小结">¶</a> 建站小结</h2>
+<h6 id="生命在于折腾！"><a class="header-anchor" href="#生命在于折腾！">¶</a> <em>生命在于折腾！</em></h6>
+<p>继上次搭建个人技术博客<a href="https://mikelucis.site">Mikelucis.site</a> [^ 基于Hexo]后，我在实际操作过程中发现了一些问题</p>
+<blockquote>
+<p>首先说明此次搭建以服务器端（Linux）为<strong>开发环境</strong>，既是<strong>管理平台</strong>，也是<strong>部署平台</strong>（这导致了我后续维护时产生了一系列问题，下文说明）</p>
+</blockquote>
+<p>在提出问题前说几句Hexo的优点：</p>
+<ul>
+<li>
+<p>Hexo其页面生成渲染基于[^Node.js]框架（Node闪电一般的的页面渲染速度大大提高了工作效率）</p>
+</li>
+<li>
+<p>Hexo其利用[^Git]进行严密的文章版本管理及部署（GIt无疑给资源推送部署带来了巨大便利）</p>
+</li>
+<li>
+<p>Hexo具有十分强大的API，支持多项模板引擎及海量工具插件</p>
+</li>
+<li>
+<p>Hexo其大部分配置通过比XML语言更灵活简便的[^YAML]语言文档进行设定（使配置选项更加灵活直观易读）</p>
+</li>
+<li>
+<p>Hexo全面支持Markdown</p>
+<p>显而易见，Hexo是一个非常强大并同时兼顾了快速、简洁且高效的博客框架。</p>
+<p><img src="https://i.loli.net/2020/05/11/vTlOx2tSis7MacA.jpg" alt=""></p>
+<blockquote>
+<p>Hexo运行机制</p>
+</blockquote>
+<p>本应用本地（Windows）作为<strong>开发环境</strong>，但我却直接将服务器上的Ubuntu作为<strong>开发环境</strong>，这无疑与它的运行机制不符。</p>
+</li>
+</ul>
+<p>当然将服务器作为<strong>开发环境</strong>也不是不可以，只是会给开发部署带来不便。先不谈远程<strong>SSH</strong>连接带来的延迟卡顿，例如在编辑配置文件或编辑文章时，若是在Linux中，则需要通过<strong>Vim</strong>或<strong>Nano</strong>等纯文本编辑器进行编辑，对于我们习惯了在<strong>Windows Office</strong>等可视化工具下写文章的大众来说极不友好；在配置前期环境时，Linux还需安装各种依赖，并进行配置，这无疑大大降低了工作效率。</p>
+<p>最重要的是基于Hexo的特性，综合以成本考虑，能使其发挥最大效用的管理平台不是在服务器上，而是在用户本地，部署平台可以是GIthubpage，CodingPages，也可以部署到自己的服务器上，这样既方便修改配置文件又方便进行管理，还可以充分利用本地富裕的系统资源，无疑“一箭三雕”。</p>
+<p>总结一下，把上文所说的归纳：</p>
+<h4 id="在本地电脑码字，修改配置，渲染网页，调整测试… 再用Git推送至云端。"><a class="header-anchor" href="#在本地电脑码字，修改配置，渲染网页，调整测试… 再用Git推送至云端。">¶</a> <strong>在本地电脑码字，修改配置，渲染网页，调整测试… 再用Git推送至云端。</strong></h4>
+<hr>
+<p>于是，我打算重（shan）新（ku）再（pao）来（lu）。。。。</p>
+<p>（伪</p>
+<p>山穷水尽，我又开始了下一步的计划与部署！</p>
+<p>鉴于我个人日常在写写代码的同时还喜欢拍拍照片，所以重新搭建了 <strong>两</strong> 个站点。</p>
+<ul>
+<li>
+<p><a href="https://mikelucis.site/">Mikelucis.site</a> <code>技术站</code></p>
+</li>
+<li>
+<p><a href="https://photo.mikelucis.site/" target="_blank" rel="noopener">Photo.mikelucis.site</a> <code>摄影站</code></p>
+<p>其中，<code>技术站</code> 是我的主站点，其域名为：<a href="https://mikelucis.site">https://mikelucis.site</a> ；主要用于发布技术类文章（计算机相关）</p>
+<p>其中，<code>摄影站</code> 是我的副站点，其域名为：<a href="https://photo.mikelucis.xn--site-3h5fz90a9rsxvct6pl8cp90c2gcqz8bm6et4jnt8bqt1dn8zwica9o">https://photo.mikelucis.site；主要发布摄影类文章（照片，经验</a>）。</p>
+<p><em>（心细的小伙伴们可能已经发现了）副站的域名是主站的二级域名。</em></p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/05/11/FSWCpovGeIEZit7.jpg" alt="Zhuzhan"></p>
+<blockquote>
+<p>技术站首页</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/05/11/ocgrJzmADu8aHfC.jpg" alt="ZhuBLog"></p>
+<blockquote>
+<p>技术站-博客页面</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/05/11/HUvKCg4wthTb8cn.jpg" alt="Fuzhan"></p>
+<blockquote>
+<p>副站首页</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/05/11/OG2KtpUMRQWXCuD.jpg" alt="Fublog"></p>
+<blockquote>
+<p>摄影站-博客页面</p>
+</blockquote>
+<p>主站我自豪的采用大名鼎鼎的 <a href="https://wordpress.com/" target="_blank" rel="noopener">WordPress</a> 搭建（非恰饭</p>
+<p><img src="https://i.loli.net/2020/05/11/owF6hId9zTQilqr.jpg" alt="WP"></p>
+<blockquote>
+<p>搭建ing</p>
+</blockquote>
+<p>副站则采用国内颇有名气的 <a href="https://www.zblogcn.com/" target="_blank" rel="noopener">Z-Blog</a> 搭建（支持国产，人人有责</p>
+<p><img src="https://i.loli.net/2020/05/11/P3artvdNiV6qWpR.png" alt="ZB"></p>
+<blockquote>
+<p>搭建ing</p>
+</blockquote>
+<p>两站均使用SSL证书进行加密，并使用Https连接，全力保障用户隐私安全。</p>
+<p><img src="https://i.loli.net/2020/05/11/xmk8BFoynIEvcjf.jpg" alt="Zhuzanlink"></p>
+<blockquote>
+<p>Firefox连接详情</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/05/11/y1ndEZ7ewmXIGQ6.jpg" alt="Fuzhanlink"></p>
+<blockquote>
+<p>Firefox连接详情</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/05/11/dQIAky6TLcba51i.jpg" alt="chrome"></p>
+<blockquote>
+<p>Chrome连接详情</p>
+</blockquote>
+<p>不出意外的话，接下来我会在这俩网站上持续更新，有疑问的可以在文章下留言，没疑问的可以来划水。</p>
+<p>争取早日被搜索引擎收录~</p>
+<p>欢迎各位计算机同僚，摄影爱好者前来捧场！</p>
+<p>“ 欢迎投稿</p>
+<p>欢迎交流 ”</p>
+<p><strong>&quot;Have a Good time Guys !&quot;</strong></p>
+<p><strong><em>生命在于折腾</em></strong></p>
+<blockquote>
+<p>引用：</p>
+<p>文中名词解释：</p>
+<p><strong>开发环境</strong>：指Hexo搭建平台（具有Node.js、Git的环境）此处指我的电脑（Windows）。</p>
+<p><strong>管理平台</strong>：指</p>
+<p><strong>部署平台</strong>：指网页文件实际存在并能被用户所见的平台，此处指服务器（Linux）</p>
+</blockquote>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"></p></div><div class="share"><span>Share</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://mikelucis.site/e5-85-b3-e4-ba-8e-e6-97-a7-e7-ab-99-e7-82-b9-e6-9b-b4-e6-96-b0-e7-9a-84-e8-af-b4-e6-98-8e/2020/05/16/%20Mikelucis的技术博客%20关于旧站点更新的说明" target="_blank" rel="noopener" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/e5-85-b3-e4-ba-8ehtml-e4-b8-ad-e7-9a-84-e5-a3-b0-e6-98-8e/2020/05/19/" title="关于HTML中的 !DOCTYPE 声明"><i class="fa fa-angle-double-left"></i>&nbsp;Previous post: 关于HTML中的 !DOCTYPE 声明</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/hello-world-1/2020/04/17/" title="世界，您好！">Next post: 世界，您好！&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="http://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
