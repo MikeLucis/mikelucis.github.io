@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.github.io/"/>
-  <updated>2020-06-24T07:26:20.892Z</updated>
+  <updated>2020-06-24T07:47:00.180Z</updated>
   <id>https://mikelucis.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://mikelucis.github.io/hello-world/2020/06/24/"/>
-    <id>https://mikelucis.github.io/hello-world/2020/06/24/</id>
-    <published>2020-06-24T07:26:20.891Z</published>
-    <updated>2020-06-24T07:26:20.892Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>关于HTML中的 !DOCTYPE 声明</title>
@@ -102,8 +79,8 @@
   
   <entry>
     <title>世界，您好！</title>
-    <link href="https://mikelucis.github.io/hello-world-1/2020/04/17/"/>
-    <id>https://mikelucis.github.io/hello-world-1/2020/04/17/</id>
+    <link href="https://mikelucis.github.io/hello-world/2020/04/17/"/>
+    <id>https://mikelucis.github.io/hello-world/2020/04/17/</id>
     <published>2020-04-17T12:31:17.000Z</published>
     <updated>2020-06-24T07:47:00.179Z</updated>
     
