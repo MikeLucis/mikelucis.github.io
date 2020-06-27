@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2020-06-27T08:23:29.618Z</updated>
+  <updated>2020-06-27T08:31:44.762Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://mikelucis.site/posts/5d764128.html"/>
     <id>https://mikelucis.site/posts/5d764128.html</id>
     <published>2020-05-19T10:59:03.000Z</published>
-    <updated>2020-06-27T08:23:29.618Z</updated>
+    <updated>2020-06-27T08:31:44.762Z</updated>
     
     <summary type="html">
     
@@ -50,7 +50,7 @@
     <link href="https://mikelucis.site/posts/97bd837b.html"/>
     <id>https://mikelucis.site/posts/97bd837b.html</id>
     <published>2020-05-16T11:30:46.000Z</published>
-    <updated>2020-06-27T08:26:05.534Z</updated>
+    <updated>2020-06-27T08:31:44.763Z</updated>
     
     <summary type="html">
     
@@ -74,11 +74,43 @@
   </entry>
   
   <entry>
+    <title>Markdown技术文档编写规范</title>
+    <link href="https://mikelucis.site/posts/62bf8215.html"/>
+    <id>https://mikelucis.site/posts/62bf8215.html</id>
+    <published>2020-04-21T10:13:54.000Z</published>
+    <updated>2020-06-27T10:13:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Markdown技术文档编写规范&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Markdown技术文档编写规范&quot;&gt;¶&lt;/a&gt; Markdown技术文档编写规范&lt;/h2&gt;
+&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="综合素养" scheme="https://mikelucis.site/categories/%E7%BB%BC%E5%90%88%E7%B4%A0%E5%85%BB/"/>
+    
+    
+      <category term="Markdown" scheme="https://mikelucis.site/tags/Markdown/"/>
+    
+      <category term="技术规范" scheme="https://mikelucis.site/tags/%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="技术文档" scheme="https://mikelucis.site/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>世界，您好！</title>
     <link href="https://mikelucis.site/posts/bbc48f3a.html"/>
     <id>https://mikelucis.site/posts/bbc48f3a.html</id>
     <published>2020-04-17T12:31:17.000Z</published>
-    <updated>2020-06-27T08:26:38.819Z</updated>
+    <updated>2020-06-27T08:31:44.761Z</updated>
     
     <summary type="html">
     
