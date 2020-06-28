@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2020-06-27T08:31:44.762Z</updated>
+  <updated>2020-06-27T10:08:01.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>更换Ubuntu国内镜像源</title>
+    <link href="https://mikelucis.site/posts/e3ef43d6.html"/>
+    <id>https://mikelucis.site/posts/e3ef43d6.html</id>
+    <published>2020-06-27T10:08:01.000Z</published>
+    <updated>2020-06-27T10:08:01.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;更换Ubuntu国内镜像源：&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#更换Ubuntu国内镜像源：&quot;&gt;¶&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://mikelucis.site/categories/Linux/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://mikelucis.site/tags/Ubuntu/"/>
+    
+      <category term="安装配置" scheme="https://mikelucis.site/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="系统" scheme="https://mikelucis.site/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>关于HTML中的 !DOCTYPE 声明</title>
