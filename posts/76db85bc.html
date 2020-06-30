@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Mike lucis"><title>在WINDOWS环境下配置C语言编译环境 · Mikelucis的技术博客</title><meta name="description" content="¶ 在WINDOWS环境下配置C语言编译环境
+注：本篇文章同样适用于 C++
+¶ 为什么需要配置
+要想让自己写出来的 C 语言源代码程序 ( *.c 源代码文件 ) 转换为可以直接运行的二进制程序 (*.exe 可执行文件 ) , 从实质上解释, 就是我们需要一个转换器用来将 C 这门人能够理解的 "><meta name="keywords" content="技术,博客,Blog,编程,学习,HTML,Python,Linux,基础"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">保持清醒，不断思考。</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Mike lucis</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/categories">分类</a></li><li><a href="/tags">标签</a></li><li><a href="/关于/index.html">关于</a></li><li><a href="/联系/index.html">联系</a></li><li class="soc"><a href="https://github.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="https://twitter.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">&nbsp;</i></a><a href="http://weibo.com/u/5026640622" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo">&nbsp;</i></a><a href="https://mikelucis.site/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>在WINDOWS环境下配置C语言编译环境</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2020-06-30</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/C-C/" title="C/C++" class="a-tag">C/C++</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/环境配置/" title="环境配置" class="a-tag">环境配置</a><span>&nbsp;</span><a href="/tags/编译器/" title="编译器" class="a-tag">编译器</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="在WINDOWS环境下配置C语言编译环境"><a class="header-anchor" href="#在WINDOWS环境下配置C语言编译环境">¶</a> 在WINDOWS环境下配置C语言编译环境</h1>
+<p><em>注：本篇文章同样适用于 C++</em></p>
+<h2 id="为什么需要配置"><a class="header-anchor" href="#为什么需要配置">¶</a> 为什么需要配置</h2>
+<p>要想让自己写出来的 C 语言源代码程序 ( <code>*.c 源代码文件</code> ) 转换为可以直接运行的二进制程序 (<code>*.exe 可执行文件</code> ) , 从实质上解释, 就是我们需要一个转换器用来将 C 这门人能够理解的 <strong>高</strong> 级语言转换为机器能够识别执行的 <strong>低</strong> 级语言。这个转换的过程，我们称之为<code>编译</code>。</p>
+<p>从专业角度来分析，这里的转换器我们用一个专有名词 <code>编译器</code> 来称呼它。</p>
+<p>在 Linux 平台上，C语言的编译器是 <code>GCC</code> （<strong>G</strong>NU <strong>C</strong>ompiler <strong>C</strong>ollection），利用 Linux 自带的包管理器我们很快就能安装上然后使用（几乎是安装即用）（甚至 Linux 其本身就是用 C 写的），然后我们便可以使用例如 Vim 之类的编辑器编写代码，并马上可以调用 <code>GCC</code> 进行编译调试（ <code>目标格式 *. out</code> ）。</p>
+<p><code>GCC</code> 与 Linux 均包含在 <code>GNU</code> （一套理想且自由的操作系统）项目内，他们俩的关系就像哥哥与弟弟一样亲密。</p>
+<p>而在Windows平台上，这个编译器是 <code>MinGW</code> （<strong>Min</strong>imalist <strong>G</strong>NU for <strong>W</strong>indows），又称 “ mingw32 ”，是将 <code>GCC</code> 编译器和 <code>GNU Binutils</code>（一种分析二进制文件的工具） 移植到 <code>Win32</code> 平台下的产物，包括一系列头文件（ Win32API ）、库 和 可执行文件。它可以产生32位的Windows可执行文件（ <code>*.exe</code> ），但是 <code>MinGW</code> 太老了，现在Windows平台大多是64位的，使用32位程序已经不能使电脑性能得到充分利用。但还好，我们还有 <code>MinGW-w64</code> ，这个项目最初是从原 <code>MinGW</code> 产生的分支，后来分离出去独立发展了。<code>MinGW-w64</code> 可以产生 32位及64位 Windows 可执行文件，可满足用户对支持64位的要求，同时其支持的平台也大大扩展，从只能运行在 Windows 平台的 <code>MinGW</code>，到能在Win32、Win64、Linux32、Linux64等主流平台上都有版本可用的 <code>MinGW-w64</code> 。</p>
+<p><img src="http://www.gnu.org/graphics/heckert_gnu.transp.small.png" alt="GNU-logo"></p>
+<h2 id="如何配置 MinGW-w64"><a class="header-anchor" href="#如何配置 MinGW-w64">¶</a> 如何配置 MinGW-w64</h2>
+<h3 id="下载二进制文件"><a class="header-anchor" href="#下载二进制文件">¶</a> 下载二进制文件</h3>
+<p><code>MinGW-w64</code> 将自己所有的源代码以及自身编译后的二进制文件都发布在了 <code>Sourceforge</code> （全球最大的开放源代码软件开发平台和仓库）。</p>
+<p>你可以点击这里来进入它的版本归档界面→<a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/" target="_blank" rel="noopener">Sourceforge</a></p>
+<p>你应该会看到如下界面</p>
+<p><img src="https://i.loli.net/2020/06/30/RCXpvWkNMeShP41.jpg" alt="MinGW-file"></p>
+<p>( 截至我写这篇文章时（2020-06-30）,目前 <code>MinGW-w64</code> <code>GCC</code> 最新版本为 v8.1.0 )</p>
+<p>我们可以在介绍里看到 <code>MGW</code> 的多个历史版本，还有它支持的各类处理器平台版本。</p>
+<p>我们可以看到版本表里最新 v8.1.0 版本的下载选项多达8项，一般的我们下载 <code>x86_64-posix-sjlj</code> 这个版本就行了。</p>
+<p><img src="https://i.loli.net/2020/06/30/1YkUXeJKjcZCsTH.jpg" alt="v"></p>
+<p><img src="https://i.loli.net/2020/06/30/WzOZT53oQmrBXxR.jpg" alt="download-mgw"></p>
+<p>(点击名称即可开始下载)</p>
+<p><img src="https://i.loli.net/2020/06/30/XcZTHj7f2mSx6tr.jpg" alt="idm-download"></p>
+<p><img src="https://i.loli.net/2020/06/30/7JfVsuGUkCFSDLy.jpg" alt="exe-zip"></p>
+<hr>
+<p>若你具有很强的动手能力，你可以下载发布页里的压缩包，他们是 <code>MinGW-w64</code> 的源代码，你可以试着亲自把他们编译为二进制文件。</p>
+<p>你可以点击这里来进入它的版本发布界面→<a href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" target="_blank" rel="noopener">Sourceforge</a></p>
+<p><img src="https://i.loli.net/2020/06/30/Yyiv9ngt53LRCbp.jpg" alt="MinGW-release"></p>
+<p><img src="https://i.loli.net/2020/06/30/oL8pJO6bCkImxgw.jpg" alt="MGW-Source"></p>
+<p>由于SF服务器在国外，有时下载体验会十分糟糕。</p>
+<p>有梯子的小伙伴请用梯子下载。</p>
+<p>当然你也可以找国内靠谱的软件源进行下载。</p>
+<h3 id="安装并配置系统变量"><a class="header-anchor" href="#安装并配置系统变量">¶</a> 安装并配置系统变量</h3>
+<h4 id="安装"><a class="header-anchor" href="#安装">¶</a> 安装</h4>
+<p>压缩包下载后，我们还需要选一个合适的位置将它解压，而这个位置就相当于是安装位置。</p>
+<p><img src="https://i.loli.net/2020/06/30/e5W2J41SDMCH3G8.jpg" alt="zip"></p>
+<p>（压缩包详情）</p>
+<p><img src="https://i.loli.net/2020/06/30/qlB41IpDeFxHWVU.jpg" alt="unzip"></p>
+<p>（解压文件到某位置）</p>
+<p>注：为便于记忆，我们可以给解压目标文件夹改个短一点的名字，例如 MinGW64</p>
+<p><img src="https://i.loli.net/2020/06/30/xJt7HRIufoaDSU5.jpg" alt="upzip-befor"></p>
+<p>（解压之后）</p>
+<h4 id="配置系统变量"><a class="header-anchor" href="#配置系统变量">¶</a> 配置系统变量</h4>
+<p>解压之后，我们打开目录下的 <code>bin</code> 子文件夹，我们会看见一大堆没图标的 .exe 可执行文件，可能会让你头皮发麻，但是不用紧张。我们此时只需要记住当前这个 <code>bin</code> 文件夹的路径。</p>
+<p><img src="https://i.loli.net/2020/06/30/73XGbKPomISU6JT.jpg" alt="bin"></p>
+<p><img src="https://i.loli.net/2020/06/30/Dr8oMY7mJpdqZxO.jpg" alt="bin-source"></p>
+<p>然后我们需要对系统变量进行配置。</p>
+<ul>
+<li>按下键盘上的【徽标键】+【Pause】组合键，打开系统属性窗口。</li>
+<li>单击左侧选项栏中的 <code>高级系统设置</code> 。</li>
+<li>点击 <code>环境变量</code> 按钮。</li>
+<li>在 <code>系统变量</code> 一栏中选择 <code>Path</code> 项，选择编辑。</li>
+<li>点击 新建 ，将刚才复制的 <code>bin</code> 目录粘贴进去，点击确定。</li>
+</ul>
+<p><img src="https://i.loli.net/2020/06/30/PFuLvOoDjETafWz.jpg" alt="path-1"></p>
+<p><img src="https://i.loli.net/2020/06/30/7gvhYe16VPKbAdx.jpg" alt="path-2"></p>
+<p>我们给系统添加环境变量就类似于地图软件给我们预先规划好路线，等到出发时直接照路线走就行了，而不至于出发时临时到处去问路。</p>
+<h4 id="验证安装"><a class="header-anchor" href="#验证安装">¶</a> 验证安装</h4>
+<p>当你看到这时，你的安装配置都应该已经完成了。</p>
+<p>现在我们还需要进行最后一步，验证安装。</p>
+<p>（简单点就是看你到底装没装上）</p>
+<ul>
+<li>
+<p>按键盘上的【徽标键】+【X】打开快捷菜单。</p>
+</li>
+<li>
+<p>选择 <code>Windows PowerShell</code> 选项</p>
+</li>
+<li>
+<p>在出现的 PowerShell 命令行窗口中 输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>回车，观察现象。</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/06/30/CkspNVWnlw7iGz3.jpg" alt="yz-1"></p>
+<p><img src="https://i.loli.net/2020/06/30/CTrWd2L3w86I7ym.jpg" alt="yz-2"></p>
+<p>（出现上图的信息说明一切顺利）</p>
+<h2 id="杂谈"><a class="header-anchor" href="#杂谈">¶</a> 杂谈</h2>
+<blockquote>
+<p>GCC （<strong>G</strong>NU <strong>C</strong>ompiler <strong>C</strong>ollection，GNU编译器套件）是由GNU开发的编程语言译器。GNU编译器套件包括C、C++、 Objective-C、 Fortran、Java、Ada和Go语言前端，也包括了这些语言的库（如libstdc++，libgcj等。）</p>
+<p>——<a href="https://baike.baidu.com/item/gcc/17570?fr=aladdin" target="_blank" rel="noopener">百科词条-GCC</a></p>
+</blockquote>
+<p><code>GCC</code> 并不单纯只支持 C 语言的编译，它还支持其他几种编程语言，例如<code>Java</code>，<code>C++</code>。</p>
+<p>还记得那个令人头皮发麻的 <code>bin</code> 文件夹吗。</p>
+<p>那里边的 exe 便是这些语言的编译前端。</p>
+<p>例如里边的：</p>
+<p><img src="https://i.loli.net/2020/06/30/QFq6lxSaiYyIsGX.jpg" alt="eg"></p>
+<ul>
+<li>这个 <code>g++.exe</code> 是 <code>C++</code> 的编译器，它不仅可以编译 <code>C++</code> 源代码，还可以编译 <code>C</code> 源代码。</li>
+<li><code>gcc.exe</code> 此 gcc 非彼 <code>GCC</code> ，这个文件是 <code>C</code> 语言的编译器，但它不可以编辑 <code>C++</code> 源代码。</li>
+</ul>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"></p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=https://mikelucis.site/posts/76db85bc.html%20Mikelucis的技术博客%20在WINDOWS环境下配置C语言编译环境" target="_blank" rel="noopener" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/posts/e3ef43d6.html" title="更换Ubuntu国内镜像源">下一篇: 更换Ubuntu国内镜像源&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
