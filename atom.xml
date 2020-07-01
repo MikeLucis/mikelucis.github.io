@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2020-06-30T07:23:12.000Z</updated>
+  <updated>2020-07-01T08:11:21.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux命令详解 - CD，LS，PWD 命令</title>
+    <link href="https://mikelucis.site/posts/669fcb93.html"/>
+    <id>https://mikelucis.site/posts/669fcb93.html</id>
+    <published>2020-07-01T08:11:21.000Z</published>
+    <updated>2020-07-01T08:11:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linux 命令详解- CD，LS，PWD 命令&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Linux 命令详解- CD，LS，PWD 命令&quot;&gt;¶&lt;/a&gt; Linux 命令详解- CD，LS，PWD
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://mikelucis.site/categories/Linux/"/>
+    
+    
+      <category term="命令行" scheme="https://mikelucis.site/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+      <category term="shell" scheme="https://mikelucis.site/tags/shell/"/>
+    
+      <category term="Linux命令详解" scheme="https://mikelucis.site/tags/Linux%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>在WINDOWS环境下配置C语言编译环境</title>
