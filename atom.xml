@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2020-07-01T08:11:21.000Z</updated>
+  <updated>2020-07-02T08:07:17.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git基本使用方法</title>
+    <link href="https://mikelucis.site/posts/50fd7a58.html"/>
+    <id>https://mikelucis.site/posts/50fd7a58.html</id>
+    <published>2020-07-02T08:07:17.000Z</published>
+    <updated>2020-07-02T08:07:17.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Git基本常用命令&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Git基本常用命令&quot;&gt;¶&lt;/a&gt; Git基本常用命令&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;mkdir&lt;/code&gt;：         XX (创建一个 空目录
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="https://mikelucis.site/categories/Git/"/>
+    
+    
+      <category term="版本分布" scheme="https://mikelucis.site/tags/%E7%89%88%E6%9C%AC%E5%88%86%E5%B8%83/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux命令详解 - CD，LS，PWD 命令</title>
