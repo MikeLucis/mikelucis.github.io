@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2020-07-02T08:07:17.000Z</updated>
+  <updated>2020-07-03T07:25:31.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WSL中文本地化</title>
+    <link href="https://mikelucis.site/posts/66e92cc.html"/>
+    <id>https://mikelucis.site/posts/66e92cc.html</id>
+    <published>2020-07-03T07:25:31.000Z</published>
+    <updated>2020-07-03T07:25:31.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;WSL中文本地化&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#WSL中文本地化&quot;&gt;¶&lt;/a&gt; WSL中文本地化&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Windows Subsystem for
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://mikelucis.site/categories/Linux/"/>
+    
+    
+      <category term="安装配置" scheme="https://mikelucis.site/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="命令行" scheme="https://mikelucis.site/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+      <category term="WSL" scheme="https://mikelucis.site/tags/WSL/"/>
+    
+  </entry>
   
   <entry>
     <title>Git基本使用方法</title>
