@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Mike lucis"><title>SQL Server 2019安装实战 · Mikelucis的技术博客</title><meta name="description" content="¶ SQL Server 2019 安装实战
+Hi !
+好久不见。
+
+首先照常放出场介绍：
+
+SQL Server 是Microsoft 公司推出的关系型数据库管理系统。具有使用方便可伸缩性好与相关软件集成程度高等优点，可跨越从运行Microsoft Windows 98 的膝上型电脑到运行Micr"><meta name="keywords" content="技术,博客,Blog,编程,学习,HTML,Python,Linux,基础"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">保持清醒，不断思考。</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Mike lucis</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/categories">分类</a></li><li><a href="/tags">标签</a></li><li><a href="/关于/index.html">关于</a></li><li><a href="/联系/index.html">联系</a></li><li class="soc"><a href="https://github.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="https://twitter.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">&nbsp;</i></a><a href="http://weibo.com/u/5026640622" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo">&nbsp;</i></a><a href="https://mikelucis.site/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>SQL Server 2019安装实战</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2020-11-28</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/应用软件/" title="应用软件" class="a-tag">应用软件</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Web/" title="Web" class="a-tag">Web</a><span>&nbsp;</span><a href="/tags/安装配置/" title="安装配置" class="a-tag">安装配置</a><span>&nbsp;</span><a href="/tags/环境配置/" title="环境配置" class="a-tag">环境配置</a><span>&nbsp;</span><a href="/tags/Windows/" title="Windows" class="a-tag">Windows</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="SQL Server 2019 安装实战"><a class="header-anchor" href="#SQL Server 2019 安装实战">¶</a> SQL Server 2019 安装实战</h1>
+<p><em>Hi !</em></p>
+<p><em>好久不见。</em></p>
+<hr>
+<p>首先照常放出场介绍：</p>
+<blockquote>
+<p>SQL Server 是Microsoft 公司推出的关系型数据库管理系统。具有使用方便可伸缩性好与相关软件集成程度高等优点，可跨越从运行Microsoft Windows 98 的膝上型电脑到运行Microsoft Windows 2012 的大型多处理器的服务器等多种平台使用。<br>
+——百度百科 [<a href="https://baike.baidu.com/item/Microsoft%20SQL%20Server?fromtitle=sql+server&amp;fromid=245994" target="_blank" rel="noopener">Microsoft SQL Server</a>] 词条</p>
+</blockquote>
+<p>这次我们安装的是微软公司的 SQL Sever 数据库，截至发文前2020年11月27日，目前最新的版本是 2019， 话不多说直接切入正题。</p>
+<hr>
+<h3 id="下载 SQL Server 2019 Developer"><a class="header-anchor" href="#下载 SQL Server 2019 Developer">¶</a> 下载 SQL Server 2019 Developer</h3>
+<p>首先你得下载数据库安装包儿。</p>
+<p>你必须从微软官网下载SQL的安装包，一定不要去什么XX下载站去下载。</p>
+<p>否则你下载下来的可就不止SQL了…</p>
+<p><a href="https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads" target="_blank" rel="noopener">点我点我</a></p>
+<p>首先进入到页面时最先看见的是微软针对商业用户提供的SQL版本。</p>
+<p><img src="https://i.loli.net/2020/11/27/z92rEIaNS7BDwJm.jpg" alt="官网商业版本-1"></p>
+<p>我们只有学习需要，所以不用管这仨玩意。</p>
+<p>在其下方有一个Developer版本，也就是开发版，我们点击立即下载即可。</p>
+<p><img src="https://i.loli.net/2020/11/28/xPenHVwA6JpWF81.jpg" alt="免费版本"></p>
+<p>下载完成后你会得到这样一个安装包，大约5~6MB 👇</p>
+<p><img src="https://i.loli.net/2020/11/28/egp2Dz4ROUEI5Qc.jpg" alt="安装包"></p>
+<h3 id="开始安装"><a class="header-anchor" href="#开始安装">¶</a> 开始安装</h3>
+<hr>
+<p>双击打开它，没错就是那个安装包。</p>
+<p><img src="https://i.loli.net/2020/11/28/TuP2O9fYzsIJX1r.jpg" alt="安装界面"></p>
+<p>这里我们选择自定义，因为如果选基本的话，安装过程会跳过很多细节。</p>
+<p><img src="https://i.loli.net/2020/11/28/XgPDzwIK6njbu21.jpg" alt="选择安装路径"></p>
+<p>这里选择除C盘（系统盘）以外的盘安装即可。</p>
+<p><img src="https://i.loli.net/2020/11/28/j7OuanJwS8VrBe1.jpg" alt="安装中"></p>
+<p>然后它就会正式开始下载 SQL Server 的安装包，大概有1.9G。</p>
+<p><img src="https://i.loli.net/2020/11/28/zxN4LHImvJbyQG2.jpg" alt="安装界面"></p>
+<p>下载完成之后它会自动启动安装程序 👆</p>
+<p><img src="https://i.loli.net/2020/11/28/kYBadEQUsq7lbOW.jpg" alt="安装界面"></p>
+<p>这里选择 [安装] 菜单下的 [全新 SQL Server 独立安装…]</p>
+<p><img src="https://i.loli.net/2020/11/28/2K8eqEMmOvAjYdi.jpg" alt="安装界面"></p>
+<p>默认选中 [Developer] 版本，下一步</p>
+<p><img src="https://i.loli.net/2020/11/28/JnOHEr3le2VUNfX.jpg" alt="安装界面"></p>
+<p>同意协议，跳过产品更新，开始验证安装规则</p>
+<p><img src="https://i.loli.net/2020/11/28/xvmlTi4yh9oQCet.jpg" alt="安装程序"></p>
+<p>此处警告无关大雅，只是提醒你防火墙可能会影响数据库相关功能。此处忽略，点击下一步。</p>
+<p><img src="https://i.loli.net/2020/11/28/MxJG3INEtOi79R6.jpg" alt="功能选择"></p>
+<p>【重要！！】此处进行组件的选择，只有学习需求的同学请按下面这张图选择安装的功能。有其他用途的跳过此处。</p>
+<p>别忘了配置实例目录，也就是选择你数据库存放的位置</p>
+<p><img src="https://i.loli.net/2020/11/28/P46DOUHrzulqWZY.jpg" alt="功能选择"></p>
+<p><img src="https://i.loli.net/2020/11/28/JaIwg6oreUABOFu.jpg" alt="实例目录"></p>
+<p><img src="https://i.loli.net/2020/11/28/PpEOkcYvy19XhoQ.jpg" alt="实例配置"></p>
+<p>自己给数据库实例起个名字</p>
+<p>服务器配置默认下一步即可</p>
+<p><img src="https://i.loli.net/2020/11/28/HZpiWSIfRM5YUyN.jpg" alt="数据库引擎配置"></p>
+<p>数据库引擎配置，学习选择 Windows身份认证 即可。</p>
+<p><img src="https://i.loli.net/2020/11/28/JeiTV5rAFWOXUSw.jpg" alt="总览配置"></p>
+<p>总览配置，确认无误后请点击安装！</p>
+<p><strong>现在程序进入正式安装阶段！大约需要15分钟的时间</strong></p>
+<p><img src="https://i.loli.net/2020/11/28/nKUXRBOPsAE8glq.jpg" alt="完成"></p>
+<p>你如果看到的是上面这副样子，那么恭喜你！安装成功</p>
+<p><img src="https://i.loli.net/2020/11/28/sQkrHwg3WXV6fTR.jpg" alt="最近添加"></p>
+<p>（无数据库集成环境）</p>
+<hr>
+<h3 id="下载 SQL Server Management Studio (SSMS)"><a class="header-anchor" href="#下载 SQL Server Management Studio (SSMS)">¶</a> 下载 SQL Server Management Studio (SSMS)</h3>
+<p>老规矩，先上介绍：</p>
+<blockquote>
+<p>SQL Server Management Studio 是一个集成环境，用于访问、配置、管理和开发 SQL Server 的所有组件。SQL Server Management Studio 组合了大量图形工具和丰富的脚本编辑器，使各种技术水平的开发人员和管理员都能访问 SQL Server。</p>
+<p>SQL Server Management Studio 将早期版本的 SQL Server 中所包含的企业管理器、查询分析器和 Analysis Manager 功能整合到单一的环境中。其中包含易于使用的图形工具和丰富的脚本撰写功能。</p>
+<p>——百度百科 [SQL Server Management Studio](<a href="https://baike.baidu.com/item/sql" target="_blank" rel="noopener">https://baike.baidu.com/item/sql</a> server management studio/12705902?fr=aladdin) 词条</p>
+</blockquote>
+<p>大家可能不是很理解为什么还要安装一个这么个玩意。</p>
+<p>考虑到大伙可能不会去看介绍，我直接说人话</p>
+<p>SQL以前的各种版本例如2008 R2 等，它们把针对数据库的配置界面还有分析器设置为一个个单独的程序，在信息数据爆炸的今天，这无疑严重降低了执行效率，微软自己也意识到了这个问题，于是他推出了集成了大部分组件为一身的 SQL Server Management Studio (下文用SSMS代替)，SSMS使用WINUI，并组合大量图形工具和强大的脚本编辑器，这无疑大大方便了我们对数据库进行操作。</p>
+<p>再说了，现在大伙电脑系统都是WIN10了，谁又愿意在这上头安装一个XP年代的 “老家伙” ，哈哈（当然不能忘记历史遗留问题）</p>
+<p><a href="https://docs.microsoft.com/zh-cn/sql/ssms/release-notes-ssms?view=sql-server-ver15" target="_blank" rel="noopener">戳这</a>，去官网</p>
+<p><img src="https://i.loli.net/2020/11/28/s3qwUuEYjtSZd5v.jpg" alt="SSMS"></p>
+<p>点击 [下载 SSMS 18.7]</p>
+<p>不出意外，你又会得到一个安装包，大概 650MB 👇</p>
+<p><img src="https://i.loli.net/2020/11/28/BC6bdIyRluPA1pK.jpg" alt="SSMS-19"></p>
+<p>没错，双击打开它。</p>
+<p><img src="https://i.loli.net/2020/11/28/iCMqPXLzNcfIpyU.jpg" alt="SSMS安装"></p>
+<p>记得改一波安装位置，别放在C盘哦。单击安装 👇</p>
+<p><img src="https://i.loli.net/2020/11/28/emytPR43AofLlDb.jpg" alt="SSMS安装"></p>
+<p><img src="https://i.loli.net/2020/11/28/P6mHJ1hwydOjNU9.jpg" alt="重启吧"></p>
+<p>重启完成安装！</p>
+<p><img src="https://i.loli.net/2020/11/28/uUHPE7iAFMOWgIq.jpg" alt="SSMS安装"></p>
+<p>其中 Azure Data Studio 用于微软云服务，若不需要可以卸载。</p>
+<p>打开 [Microsoft SQL Server Management Studio 18] 即可开始使用！！</p>
+<p><img src="https://i.loli.net/2020/11/28/8kMPY9bHlwrZRU3.png" alt="SSMS"></p>
+<hr>
+<p><em>End</em></p>
+<p><strong>2020-11-27  02:35</strong></p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"></p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=https://mikelucis.site/posts/6bf004c2.html%20Mikelucis的技术博客%20SQL Server 2019安装实战" target="_blank" rel="noopener" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/posts/774211e.html" title=" 科目三道路驾驶技能考试重点备注">下一篇:  科目三道路驾驶技能考试重点备注&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
