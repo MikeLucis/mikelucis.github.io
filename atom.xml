@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2020-12-04T15:21:33.000Z</updated>
+  <updated>2020-12-16T12:44:25.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C#-类-对象-方法和属性详解</title>
+    <link href="https://mikelucis.site/posts/6c9361d4.html"/>
+    <id>https://mikelucis.site/posts/6c9361d4.html</id>
+    <published>2020-12-16T12:44:25.000Z</published>
+    <updated>2020-12-16T12:44:25.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;C# 类、对象、方法和属性详解&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#C# 类、对象、方法和属性详解&quot;&gt;¶&lt;/a&gt; C# 类、对象、方法和属性详解&lt;/h1&gt;
+&lt;h3 id=&quot;相关概念：&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term=".NET" scheme="https://mikelucis.site/categories/NET/"/>
+    
+    
+      <category term="C#" scheme="https://mikelucis.site/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>信息素养格式说明及范文</title>
