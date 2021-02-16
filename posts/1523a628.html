@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Mike lucis"><title>基于Django的Discuz论坛系统 · Mikelucis的技术博客</title><meta name="description" content="¶ 前言
+Python下有许多款不同的 Web 框架。 Django 是重量级选手中最有代表性的一位。许多成功的网站和 APP 都基于 Django 。
+
+一款采用Python语言编写的开源 Web 框架，于2005年发布，早期曾用于新闻发布与内容管理（速度快时效性强）。
+Django 采用了 MV"><meta name="keywords" content="技术,博客,Blog,编程,学习,HTML,Python,Linux,基础"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/typography-custom-font.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">保持清醒，不断思考。</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Mike lucis</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/categories">分类</a></li><li><a href="/tags">标签</a></li><li><a href="/关于/index.html">关于</a></li><li><a href="/联系/index.html">联系</a></li><li class="soc"><a href="https://github.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="https://twitter.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">&nbsp;</i></a><a href="http://weibo.com/u/5026640622" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo">&nbsp;</i></a><a href="https://mikelucis.site/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2021&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p><p>友情链接:&nbsp;<a target="_blank" href="https://veam.top/" rel="noopener noreferrer">Lonely's Bolg</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>基于Django的Discuz论坛系统</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2021-02-16</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/项目开发/" title="项目开发" class="a-tag">项目开发</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Django/" title="Django" class="a-tag">Django</a><span>&nbsp;</span><a href="/tags/Python/" title="Python" class="a-tag">Python</a><span>&nbsp;</span></span></p><p class="post-abstract"><p><img src="https://www.runoob.com/wp-content/uploads/2015/01/django.jpg" alt="Django-logo"></p>
+<h2 id="前言"><a class="header-anchor" href="#前言">¶</a> 前言</h2>
+<p>Python下有许多款不同的 Web 框架。 Django 是重量级选手中最有代表性的一位。许多成功的网站和 APP 都基于 Django 。<a id="more"></a></p>
+<ul>
+<li>一款采用Python语言编写的开源 Web 框架，于2005年发布，早期曾用于新闻发布与内容管理（速度快时效性强）。</li>
+<li>Django 采用了 <code>MVT</code> 的软件设计模式，即模型（<code>Model</code>），视图（<code>View</code>）和模板（<code>Template</code>）。</li>
+</ul>
+<p>使用 Django ，只要很少的代码，Python 的程序开发人员就可以轻松地完成一个正式网站所需要的大部分内容，并进一步开发出全功能的 Web 服务 Django 本身基于 <code>MVC</code>模型，即 <code>Model</code>（模型）+ <code>View</code>（视图）+ <code>Controller</code>（控制器）设计模式，<code>MVC </code>模式使后续对程序的修改和扩展简化，并且使程序某一部分的重复利用成为可能。</p>
+<ul>
+<li>Django 的用途
+<ul>
+<li>网站后端开发</li>
+<li>微信公众号后台开发</li>
+<li>微信小程序后台开发</li>
+<li>基于 HTTP / HTTPS 协议的后台服务器开发</li>
+<li>在线语音/图像识别服务器</li>
+<li>在线第三方身份验证服务器等</li>
+</ul>
+</li>
+</ul>
+<h2 id="项目简介"><a class="header-anchor" href="#项目简介">¶</a> 项目简介</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">项目名：基于Django的Discuz论坛</span><br><span class="line">Django版本：3.1.6</span><br><span class="line">Requirements：</span><br><span class="line">	- SQLite</span><br><span class="line">	- Django-3.1.5</span><br><span class="line">	- pytds, pytz</span><br><span class="line">	- pyodbc</span><br><span class="line">	- Django-Database-URL</span><br><span class="line">	- Widget-Tweaks</span><br><span class="line">Other-module：</span><br><span class="line">	- Bootstrap-4.0.0</span><br><span class="line">	- Simplemde-1.11.2</span><br><span class="line">	- jQuery-3.5.1</span><br><span class="line">	- Popper-2.6.0</span><br></pre></td></tr></table></figure>
+<h3 id="源代码根目录树："><a class="header-anchor" href="#源代码根目录树：">¶</a> 源代码根目录树：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Django-Discuz&#x2F;</span><br><span class="line">|-- Myproject&#x2F;</span><br><span class="line">| |-- accounts&#x2F;</span><br><span class="line">| |-- boards&#x2F;</span><br><span class="line">| |-- myproject&#x2F;</span><br><span class="line">| |-- static&#x2F;</span><br><span class="line">| |-- templates&#x2F;</span><br><span class="line">| |-- ...</span><br><span class="line">| |-- db.sqlite3</span><br><span class="line">| +-- manage.py</span><br><span class="line">+-- venv&#x2F;</span><br></pre></td></tr></table></figure>
+<h3 id="如何运行？"><a class="header-anchor" href="#如何运行？">¶</a> 如何运行？</h3>
+<ol>
+<li>
+<p>使用 <code>pip</code> 安装好所需环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install [所需包名]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>迁移数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建管理员账户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在源代码目录打开命令行窗口（或 cd 切换目录）</p>
+</li>
+<li>
+<p>启动 Django 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver &#123;端口名&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2021/02/16/Vl5xtubM63dUrnF.png" alt="image-20210216152335184"></p>
+</li>
+<li>
+<p>在浏览器地址栏内输入命令行所示地址 <code>http://127.0.0.1:8000/</code></p>
+</li>
+<li>
+<p>Have Fun Guys ~</p>
+</li>
+</ol>
+<h2 id="页面说明"><a class="header-anchor" href="#页面说明">¶</a> 页面说明</h2>
+<h3 id="首页"><a class="header-anchor" href="#首页">¶</a> 首页</h3>
+<p><img src="https://i.loli.net/2021/02/16/RGSrbBvo6weZquP.png" alt="ind"></p>
+<p align="center">`首页👆`</p>
+<p align="center">整体页面从上至下依次为：顶部导航，面包屑导航栏，板块列表</p>
+<p><img src="https://i.loli.net/2021/02/16/zCVTcPAi9gZQO2n.png" alt="image-20210216160101536"></p>
+<p align="center">以不同身份向其中添加数据后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 其中Board栏中为板块名称及介绍；</span><br><span class="line">- Posts栏为帖子数量（包括回复）；</span><br><span class="line">- Topics栏为主题帖数量；</span><br><span class="line">- Last Post栏包含最后发表信息；</span><br></pre></td></tr></table></figure>
+<h3 id="板块页面"><a class="header-anchor" href="#板块页面">¶</a> 板块页面</h3>
+<p><img src="https://i.loli.net/2021/02/16/FcYaDovOzxIwsjZ.png" alt="image-20210216161301485"></p>
+<p align="center">`板块页👆`</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- Topic栏为主题名及主题页数</span><br><span class="line">- Starter栏为主题创建者</span><br><span class="line">- Replies为回复数量</span><br><span class="line">- Views为总计点击数</span><br><span class="line">- Last Update为最后编辑时间</span><br></pre></td></tr></table></figure>
+<p align="center">点击 `New topic` 按钮后可发起新主题帖👇</p>
+<p><img src="https://i.loli.net/2021/02/16/2mwUx4lbCKeQMFY.jpg" alt="New-topic"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- Subject为主题名</span><br><span class="line">- Message为主题内容</span><br></pre></td></tr></table></figure>
+<p align="center">点击 `Post` 按钮进行提交👇</p>
+<p><img src="https://i.loli.net/2021/02/16/D6YCjJK4hBWq58N.jpg" alt="topic"></p>
+<h3 id="主题页面"><a class="header-anchor" href="#主题页面">¶</a> 主题页面</h3>
+<p><img src="https://i.loli.net/2021/02/16/1VXmHFYaAzto6CT.png" alt="topic"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 创建人发起的帖子以黑色重点框注</span><br><span class="line">- 他人回复帖子则为灰框</span><br></pre></td></tr></table></figure>
+<p align="center">点击 `Reply` 按钮可进行回复👇
+<p><img src="https://i.loli.net/2021/02/16/UmZpgvD4LtSrEh3.png" alt="Reply"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 编辑支持Markdown语法</span><br><span class="line">- 回复页面下方可查看历史回复</span><br></pre></td></tr></table></figure>
+<p align="center">点击 `Post a reply` 按钮提交回复</p>
+<h2 id="用户账户"><a class="header-anchor" href="#用户账户">¶</a> 用户账户</h2>
+<h3 id="后台管理"><a class="header-anchor" href="#后台管理">¶</a> 后台管理</h3>
+<p>当你第一次运行服务器时，页面最上方不会显示你的账户信息，因为你还未登录，且项目内无任何账户。我们需要新建一个超级管理员账户。</p>
+<p>为此请输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2021/02/16/51qFveHmt6DPkpi.png" alt="superuser"></p>
+<p align="center">`按图索骥👆`</p>
+<p align="center">完成设置后即可体验到 Django 自带的强大后台管理了。</p>
+<p>在浏览器地址栏中输入：<code>http://127.0.0.1:8000/admin/</code> （加上 <code>/admin</code>)</p>
+<p><img src="https://i.loli.net/2021/02/16/dOvLFC7TGY26tsK.png" alt="image-20210216172116973"></p>
+<p>输入刚刚设置的 <code>SuperUser</code> 账户密码，即可对站点进行可视化管理。</p>
+<p><img src="https://i.loli.net/2021/02/16/X7iLd4IUhVDfcSo.png" alt="image-20210216172247313"></p>
+<h3 id="账户系统"><a class="header-anchor" href="#账户系统">¶</a> 账户系统</h3>
+<p align="center">点击 `查看站点` 回到主页👇</p>
+<p><img src="https://i.loli.net/2021/02/16/5h1PJU7RBlzWNnf.png" alt="index-2"></p>
+<p align="center">此时注意右上角的用户组件，已经显示出当前登录账户名称。这个组件我们等会再细讲。</p>
+<p><img src="https://i.loli.net/2021/02/16/LW4SJEFHibj57ul.gif" alt="GIF"></p>
+<p align="center">还记得之前介绍过的主题页面吗？</p>
+<p align="center">如果你已经登录账户并发布 / 回复了帖子，你会发现在你发布帖子内容的下方出现了一个 Edit 按钮👇</p>
+<p><img src="https://i.loli.net/2021/02/16/yXoWuMHaAreb1Cc.png" alt="Edit"></p>
+<p align="center">这个 `Edit` 按钮是随着当前登录用户而出现的，只有帖子发布者具有修改帖子的权限。</p>
+<p><img src="https://i.loli.net/2021/02/16/d9E3jUHbW6ThJBs.png" alt="image-20210216182846779"></p>
+<p align="center">`Jack账户具有帖子的编辑权限` 👆</p>
+<p>对了，此处用户头像使用了 <a href="https://en.gravatar.com/site/implement/images/" target="_blank" rel="noopener">Gravatar</a>， <a href="https://baike.baidu.com/item/Gravatar" target="_blank" rel="noopener">介绍在这</a> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 对于注册用户，显示已设置头像</span><br><span class="line">- 对于非注册用户，缺省显示像素化头像（8-bit arcade-style pixelated faces）</span><br><span class="line">（本功能使用邮箱地址判定身份，注册时请确认邮箱是否有效）</span><br></pre></td></tr></table></figure>
+<h3 id="认证系统"><a class="header-anchor" href="#认证系统">¶</a> 认证系统</h3>
+<p>现在是时候说说那个组件的事了，最开始上方有两个按钮，它们对应登录与注册。</p>
+<p><img src="https://i.loli.net/2021/02/16/KQr6ubWs4HGd1vB.png" alt="image-20210216191142326"></p>
+<p><img src="https://i.loli.net/2021/02/16/rMI2SLyRJvNep81.png" alt="login"></p>
+<p align="center">`登录页面👆`</p>
+<p><img src="https://i.loli.net/2021/02/16/lGI7PeZo6pS1rWC.png" alt="signup"></p>
+<p align="center">`注册页面👆`</p>
+<p align="center">而已登录用户会在顶栏显示他们的用户名，点击它会唤出一个下拉菜单👇（利用 Jquery 实现）</p>
+<p><img src="https://i.loli.net/2021/02/16/ZbAQVpXSUTs5Dvq.gif" alt="Jquery"></p>
+<p align="center">其中第一项 `My Account` ，用来对个人信息进行修改</p>
+<p><img src="https://i.loli.net/2021/02/16/c4WdNL8jylMiumf.png" alt="MyAccount"></p>
+<p align="center">`修改个人信息👆`</p>
+<p align="center">第二项 `Change Password` ，用来修改密码</p>
+<p><img src="https://i.loli.net/2021/02/16/8iNpMQfjBcln25J.png" alt="ChangePwd"></p>
+<p align="center">`修改密码页面👆`</p>
+<p><img src="https://i.loli.net/2021/02/16/icEQG5FaPkv9VMN.png" alt="changepwddone"></p>
+<p align="center">`修改成功👆`</p>
+<p align="center">下拉菜单最后一项 `Log out` ，作用是退出登录</p>
+<p><img src="https://i.loli.net/2021/02/16/vCuSL9kiAmpU4Nc.gif" alt="logout"></p>
+<h2 id="项目地址"><a class="header-anchor" href="#项目地址">¶</a> 项目地址</h2>
+<p><a href="https://github.com/MikeLucis/Django-Discuz" target="_blank" rel="noopener">MikeLucis/Django-Discuz: My first Django test. (github.com)</a></p>
+<h2 id="欢迎大家借鉴Fork！"><a class="header-anchor" href="#欢迎大家借鉴Fork！">¶</a> <strong>欢迎大家借鉴Fork！</strong></h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"></p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=https://mikelucis.site/posts/1523a628.html%20Mikelucis的技术博客%20基于Django的Discuz论坛系统" target="_blank" rel="noopener" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/posts/9b4f75ac.html" title="Django基于类的视图策略">下一篇: Django基于类的视图策略&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2021&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p><p>友情链接:&nbsp;<a target="_blank" href="https://veam.top/" rel="noopener noreferrer">Lonely's Bolg</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
