@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Mike lucis"><title>Python-文件I/O · Mikelucis的技术博客</title><meta name="description" content="Python中有几个内置模块和方法来处理文件。这些方法被分割到例如os, os.path , shutil 和 pathlib 等等几个模块中。文章将列举Python中对文件最常用的操作和方法。
+
+¶ Python中文件数据的读和写
+使用Python对文件进行读和写是十分简单的。为此，你首先必须使用"><meta name="keywords" content="技术,博客,Blog,编程,学习,HTML,Python,Linux,基础"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/typography-custom-font.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">保持清醒，不断思考。</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Mike lucis</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/categories">分类</a></li><li><a href="/tags">标签</a></li><li><a href="/关于/index.html">关于</a></li><li><a href="/联系/index.html">联系</a></li><li class="soc"><a href="https://github.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="https://twitter.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">&nbsp;</i></a><a href="http://weibo.com/u/5026640622" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo">&nbsp;</i></a><a href="https://mikelucis.site/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2021&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p><p>友情链接:&nbsp;<a target="_blank" href="https://veam.top/" rel="noopener noreferrer">Lonely's Bolg</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Python-文件I/O</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2021-02-21</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/Python/" title="Python" class="a-tag">Python</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/文件I-O/" title="文件I/O" class="a-tag">文件I/O</a><span>&nbsp;</span></span></p><p class="post-abstract"><p>Python中有几个内置模块和方法来处理文件。这些方法被分割到例如<code>os</code>, <code>os.path</code> , <code>shutil</code> 和 <code>pathlib</code> 等等几个模块中。文章将列举Python中对文件最常用的操作和方法。</p>
+<hr>
+<h2 id="Python中文件数据的读和写"><a class="header-anchor" href="#Python中文件数据的读和写">¶</a> Python中文件数据的读和写</h2>
+<p>使用Python对文件进行读和写是十分简单的。为此，你首先必须使用合适的模式打开文件。这里有一个如何打开文本文件并读取其内容的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'data.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = f.read()</span><br><span class="line">    print(<span class="string">'context: &#123;&#125;'</span>.format(data))</span><br></pre></td></tr></table></figure>
+<p><code>open()</code> 接收一个文件名和一个模式作为它的参数，<code>r</code> 表示以只读模式打开文件。想要往文件中写数据的话，则用<code>w</code> 作为参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'data.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = <span class="string">'some data to be written to the file'</span></span><br><span class="line">    f.write(data)</span><br></pre></td></tr></table></figure>
+<p>在上述例子中，open()打开用于读取或写入的文件并返回文件句柄(本例子中的 <code>f</code> )，该句柄提供了可用于读取或写入文件数据的方法。阅读 <a href="https://link.zhihu.com/?target=https%3A//dbader.org/blog/python-file-io">Working With File I/O in Python</a> 获取更多关于如何读写文件的信息。</p>
+<h3 id="open 函数"><a class="header-anchor" href="#open 函数">¶</a> open 函数</h3>
+<p>你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的方法才可以调用它进行读写。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file object = open(file_name [, access_mode][, buffering])</span><br></pre></td></tr></table></figure>
+<p>各个参数的细节如下：</p>
+<ul>
+<li>file_name：file_name变量是一个包含了你要访问的文件名称的字符串值。</li>
+<li>access_mode：access_mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读®。</li>
+<li>buffering: 如果buffering的值被设为0，就不会有寄存。如果buffering的值取1，访问文件时会寄存行。如果将buffering的值设为大于1的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。</li>
+</ul>
+<p>不同模式打开文件的完全列表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模式</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">t</td>
+<td style="text-align:left">文本模式 (默认)。</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">写模式，新建一个文件，如果该文件已存在则会报错。</td>
+</tr>
+<tr>
+<td style="text-align:left">b</td>
+<td style="text-align:left">二进制模式。</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">打开一个文件进行更新(可读可写)。</td>
+</tr>
+<tr>
+<td style="text-align:left">U</td>
+<td style="text-align:left">通用换行模式（不推荐）。</td>
+</tr>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:left">以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td style="text-align:left">rb</td>
+<td style="text-align:left">以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">r+</td>
+<td style="text-align:left">打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td style="text-align:left">rb+</td>
+<td style="text-align:left">以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">wb</td>
+<td style="text-align:left">以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">w+</td>
+<td style="text-align:left">打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">wb+</td>
+<td style="text-align:left">以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">ab</td>
+<td style="text-align:left">以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">a+</td>
+<td style="text-align:left">打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+<tr>
+<td style="text-align:left">ab+</td>
+<td style="text-align:left">以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody>
+</table>
+<p>下表很好的总结了这几种模式：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th style="text-align:center">r</th>
+<th style="text-align:center">r+</th>
+<th style="text-align:center">w</th>
+<th style="text-align:center">w+</th>
+<th style="text-align:center">a</th>
+<th style="text-align:center">a+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">读</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">+</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">写</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">创建</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">覆盖</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">指针在开始</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">指针在结尾</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">+</td>
+<td style="text-align:center">+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="File 对象的属性"><a class="header-anchor" href="#File 对象的属性">¶</a> File 对象的属性</h2>
+<p>一个文件被打开后，你有一个file对象，你可以得到有关该文件的各种信息。</p>
+<p>以下是和file对象相关的所有属性的列表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">file.closed</td>
+<td style="text-align:left">返回true如果文件已被关闭，否则返回false。</td>
+</tr>
+<tr>
+<td style="text-align:left">file.mode</td>
+<td style="text-align:left">返回被打开文件的访问模式。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://file.name" target="_blank" rel="noopener">file.name</a></td>
+<td style="text-align:left">返回文件的名称。</td>
+</tr>
+<tr>
+<td style="text-align:left">file.softspace</td>
+<td style="text-align:left">如果用print输出后，必须跟一个空格符，则返回false。否则返回true。</td>
+</tr>
+</tbody>
+</table>
+<p>如下实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"fileio"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"文件名: "</span>, fo.name</span><br><span class="line"><span class="keyword">print</span> <span class="string">"是否已关闭 : "</span>, fo.closed</span><br><span class="line"><span class="keyword">print</span> <span class="string">"访问模式 : "</span>, fo.mode</span><br><span class="line"><span class="keyword">print</span> <span class="string">"末尾是否强制加空格 : "</span>, fo.softspace</span><br></pre></td></tr></table></figure>
+<p>以上实例输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">文件名:  fileio</span><br><span class="line">是否已关闭 :  False</span><br><span class="line">访问模式 :  w</span><br><span class="line">末尾是否强制加空格 :  0</span><br></pre></td></tr></table></figure>
+<h3 id="close ( ) 方法"><a class="header-anchor" href="#close ( ) 方法">¶</a> close ( ) 方法</h3>
+<p>File 对象的 close（）方法刷新缓冲区里任何还没写入的信息，并关闭该文件，这之后便不能再进行写入。</p>
+<p>当一个文件对象的引用被重新指定给另一个文件时，Python 会关闭之前的文件。用 close（）方法关闭文件是一个很好的习惯。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileObject.close()</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"fileio"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"文件名: "</span>, fo.name</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<p>以上实例输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件名:  fileio</span><br></pre></td></tr></table></figure>
+<p>读写文件：</p>
+<p>file对象提供了一系列方法，能让我们的文件访问更轻松。来看看如何使用read()和write()方法来读取和写入文件。</p>
+<h3 id="write()方法"><a class="header-anchor" href="#write()方法">¶</a> write()方法</h3>
+<p>write()方法可将任何字符串写入一个打开的文件。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
+<p>write()方法不会在字符串的结尾添加换行符(‘\n’)：</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileObject.write(string)</span><br></pre></td></tr></table></figure>
+<p>在这里，被传递的参数是要写入到已打开文件的内容。</p>
+<p>例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"fileio"</span>, <span class="string">"w"</span>)</span><br><span class="line">fo.write( <span class="string">"This is Mike'blog.\nHave Fun Guys!!\n"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<p>上述方法会创建 fileio 文件，并将收到的内容写入该文件，并最终关闭文件。如果你打开这个文件，将看到以下内容:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat fileio</span></span><br><span class="line">This is Mike'blog.</span><br><span class="line">Have Fun Guys!!</span><br></pre></td></tr></table></figure>
+<h3 id="read()方法"><a class="header-anchor" href="#read()方法">¶</a> read()方法</h3>
+<p>read（）方法从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileObject.read([count])</span><br></pre></td></tr></table></figure>
+<p>在这里，被传递的参数是要从已打开文件中读取的字节计数。该方法从文件的开头开始读入，如果没有传入count，它会尝试尽可能多地读取更多的内容，很可能是直到文件的末尾。</p>
+<h3 id="例子："><a class="header-anchor" href="#例子：">¶</a> 例子：</h3>
+<p>这里我们用到以上创建的 fileio 文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"fileio"</span>, <span class="string">"r+"</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"读取的字符串是 : "</span>, str</span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<p>以上实例输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">读取的字符串是 :  This is Mi</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="文件定位"><a class="header-anchor" href="#文件定位">¶</a> 文件定位</h2>
+<p>tell()方法告诉你文件内的当前位置, 换句话说，下一次的读写会发生在文件开头这么多字节之后。</p>
+<p>seek（offset [,from]）方法改变当前文件的位置。Offset变量表示要移动的字节数。From变量指定开始移动字节的参考位置。</p>
+<p>如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。如果设为1，则使用当前的位置作为参考位置。如果它被设为2，那么该文件的末尾将作为参考位置。</p>
+<p>例子：</p>
+<p>就用我们上面创建的文件 fileio 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个文件</span></span><br><span class="line">fo = open(<span class="string">"fileio"</span>, <span class="string">"r+"</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"读取的字符串是 : "</span>, str</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查找当前位置</span></span><br><span class="line">position = fo.tell()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"当前文件位置 : "</span>, position</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 把指针再次重新定位到文件开头</span></span><br><span class="line">position = fo.seek(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">str = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"重新读取字符串 : "</span>, str</span><br><span class="line"><span class="comment"># 关闭打开的文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<p>以上实例输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">读取的字符串是 :  This is Mi</span><br><span class="line">当前文件位置 :  10</span><br><span class="line">重新读取字符串 :  This is Mi</span><br></pre></td></tr></table></figure>
+<h2 id="重命名和删除文件"><a class="header-anchor" href="#重命名和删除文件">¶</a> 重命名和删除文件</h2>
+<p>Python的os模块提供了帮你执行文件处理操作的方法，比如重命名和删除文件。</p>
+<p>要使用这个模块，你必须先导入它，然后才可以调用相关的各种功能。</p>
+<h3 id="rename() 方法"><a class="header-anchor" href="#rename() 方法">¶</a> rename() 方法</h3>
+<p>rename() 方法需要两个参数，当前的文件名和新文件名。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.rename(current_file_name, new_file_name)</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例将重命名一个已经存在的文件 test1.txt。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 重命名文件test1.txt到test2.txt。</span></span><br><span class="line">os.rename( <span class="string">"test1.txt"</span>, <span class="string">"test2.txt"</span> )</span><br></pre></td></tr></table></figure>
+<h3 id="remove()方法"><a class="header-anchor" href="#remove()方法">¶</a> remove()方法</h3>
+<p>你可以用remove()方法删除文件，需要提供要删除的文件名作为参数。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.remove(file_name)</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例将删除一个已经存在的文件test2.txt。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除一个已经存在的文件test2.txt</span></span><br><span class="line">os.remove(<span class="string">"test2.txt"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Python里的目录："><a class="header-anchor" href="#Python里的目录：">¶</a> Python里的目录：</h2>
+<p>所有文件都包含在各个不同的目录下，不过Python也能轻松处理。os模块有许多方法能帮你创建，删除和更改目录。</p>
+<h3 id="mkdir()方法"><a class="header-anchor" href="#mkdir()方法">¶</a> mkdir()方法</h3>
+<p>可以使用os模块的mkdir()方法在当前目录下创建新的目录们。你需要提供一个包含了要创建的目录名称的参数。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.mkdir(<span class="string">"newdir"</span>)</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例将在当前目录下创建一个新目录test。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 创建目录test</span></span><br><span class="line">os.mkdir(<span class="string">"test"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="chdir()方法"><a class="header-anchor" href="#chdir()方法">¶</a> chdir()方法</h3>
+<p>可以用chdir()方法来改变当前的目录。chdir()方法需要的一个参数是你想设成当前目录的目录名称。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="string">"newdir"</span>)</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例将进入&quot;/home/newdir&quot;目录。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 将当前目录改为"/home/newdir"</span></span><br><span class="line">os.chdir(<span class="string">"/home/newdir"</span>)</span><br></pre></td></tr></table></figure>
+<p>getcwd()方法：</p>
+<p>getcwd()方法显示当前的工作目录。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>下例给出当前目录：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 给出当前的目录</span></span><br><span class="line"><span class="keyword">print</span> os.getcwd()</span><br></pre></td></tr></table></figure>
+<h3 id="rmdir()方法"><a class="header-anchor" href="#rmdir()方法">¶</a> rmdir()方法</h3>
+<p>rmdir()方法删除目录，目录名称以参数传递。</p>
+<p>在删除这个目录之前，它的所有内容应该先被清除。</p>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.rmdir(<span class="string">'dirname'</span>)</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<p>以下是删除&quot; /tmp/test&quot;目录的例子。目录的完全合规的名称必须被给出，否则会在当前目录下搜索该目录。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除”/tmp/test”目录</span></span><br><span class="line">os.rmdir( <span class="string">"/tmp/test"</span>  )</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"></p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=https://mikelucis.site/posts/a5a58f27.html%20Mikelucis的技术博客%20Python-文件I/O" target="_blank" rel="noopener" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/posts/38fdfb27.html" title="Restful API接口设计标准及规范">下一篇: Restful API接口设计标准及规范&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2021&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p><p>友情链接:&nbsp;<a target="_blank" href="https://veam.top/" rel="noopener noreferrer">Lonely's Bolg</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

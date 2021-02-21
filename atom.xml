@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2021-02-16T11:42:50.000Z</updated>
+  <updated>2021-02-21T08:34:00.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-文件I/O</title>
+    <link href="https://mikelucis.site/posts/a5a58f27.html"/>
+    <id>https://mikelucis.site/posts/a5a58f27.html</id>
+    <published>2021-02-21T08:34:00.000Z</published>
+    <updated>2021-02-21T08:34:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Python中有几个内置模块和方法来处理文件。这些方法被分割到例如&lt;code&gt;os&lt;/code&gt;, &lt;code&gt;os.path&lt;/code&gt; , &lt;code&gt;shutil&lt;/code&gt; 和 &lt;code&gt;pathlib&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://mikelucis.site/categories/Python/"/>
+    
+    
+      <category term="文件I/O" scheme="https://mikelucis.site/tags/%E6%96%87%E4%BB%B6I-O/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Restful API接口设计标准及规范</title>
+    <link href="https://mikelucis.site/posts/38fdfb27.html"/>
+    <id>https://mikelucis.site/posts/38fdfb27.html</id>
+    <published>2021-02-21T05:03:48.000Z</published>
+    <updated>2021-02-21T05:03:48.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;网络应用程序，分为前端和后端两个部分。&lt;/p&gt;
+&lt;p&gt;当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备…）。因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。&lt;/p&gt;
+&lt;p&gt;这导致API构架的流行，甚至出现&amp;quot;APIFirst&amp;q
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://mikelucis.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="技术规范" scheme="https://mikelucis.site/tags/%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="API" scheme="https://mikelucis.site/tags/API/"/>
+    
+  </entry>
   
   <entry>
     <title>基于Django的Discuz论坛系统</title>
@@ -32,12 +90,10 @@
     </summary>
     
     
-      <category term="项目开发" scheme="https://mikelucis.site/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+      <category term="Python" scheme="https://mikelucis.site/categories/Python/"/>
     
     
       <category term="Django" scheme="https://mikelucis.site/tags/Django/"/>
-    
-      <category term="Python" scheme="https://mikelucis.site/tags/Python/"/>
     
   </entry>
   
@@ -518,63 +574,6 @@
       <category term="安装配置" scheme="https://mikelucis.site/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     
       <category term="系统" scheme="https://mikelucis.site/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于HTML中的 !DOCTYPE 声明</title>
-    <link href="https://mikelucis.site/posts/5d764128.html"/>
-    <id>https://mikelucis.site/posts/5d764128.html</id>
-    <published>2020-05-19T10:59:03.000Z</published>
-    <updated>2020-06-27T08:31:44.762Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;关于HTML中的 &amp;lt;!DOCTYPE&amp;gt; 声明&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#关于HTML中的 &amp;lt;!DOCTYPE&amp;gt; 声明&quot;&gt;¶&lt;/a&gt; 关于HTML中的 &amp;lt;!DOCTYPE&amp;gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://mikelucis.site/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="HTML" scheme="https://mikelucis.site/tags/HTML/"/>
-    
-      <category term="Web" scheme="https://mikelucis.site/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于旧站点更新的说明</title>
-    <link href="https://mikelucis.site/posts/97bd837b.html"/>
-    <id>https://mikelucis.site/posts/97bd837b.html</id>
-    <published>2020-05-16T11:30:46.000Z</published>
-    <updated>2020-06-27T08:31:44.763Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;建站小结&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#建站小结&quot;&gt;¶&lt;/a&gt; 建站小结&lt;/h2&gt;
-&lt;h6 id=&quot;生命在于折腾！&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#生命在于折腾！&quot;&gt;¶&lt;/a&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="历史事件" scheme="https://mikelucis.site/categories/%E5%8E%86%E5%8F%B2%E4%BA%8B%E4%BB%B6/"/>
-    
-    
-      <category term="本站" scheme="https://mikelucis.site/tags/%E6%9C%AC%E7%AB%99/"/>
     
   </entry>
   
