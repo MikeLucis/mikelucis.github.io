@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2021-06-22T12:01:59.000Z</updated>
+  <updated>2021-06-23T15:59:22.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高阶函数</title>
+    <link href="https://mikelucis.site/posts/47f3f95c.html"/>
+    <id>https://mikelucis.site/posts/47f3f95c.html</id>
+    <published>2021-06-23T15:59:22.000Z</published>
+    <updated>2021-06-23T15:59:22.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;高阶函数&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#高阶函数&quot;&gt;¶&lt;/a&gt; 高阶函数&lt;/h2&gt;
+&lt;p&gt;变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。&lt;/p&gt;
+&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://mikelucis.site/categories/Python/"/>
+    
+    
+      <category term="Advance" scheme="https://mikelucis.site/tags/Advance/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode-两数之和</title>
@@ -539,34 +568,6 @@
     
     
       <category term="Typora" scheme="https://mikelucis.site/tags/Typora/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>libpng12.so.0 没有那个文件或目录</title>
-    <link href="https://mikelucis.site/posts/2588f048.html"/>
-    <id>https://mikelucis.site/posts/2588f048.html</id>
-    <published>2020-07-05T05:58:55.000Z</published>
-    <updated>2020-07-05T05:58:55.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;em&gt;环境版本：Ubuntu 20.04&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;问题现象：Ubuntu 20.04 遇到了libpng12.so.0 缺失，导致无法使用 apt&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#问题现象：Ubuntu
-        
-      
-    
-    </summary>
-    
-    
-      <category term="错误集锦" scheme="https://mikelucis.site/categories/%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
-    
-    
-      <category term="Ubuntu" scheme="https://mikelucis.site/tags/Ubuntu/"/>
     
   </entry>
   
