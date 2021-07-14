@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2021-06-25T17:26:54.000Z</updated>
+  <updated>2021-07-06T14:26:43.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ElasticSearch-批量操作</title>
+    <link href="https://mikelucis.site/posts/d0e8ee80.html"/>
+    <id>https://mikelucis.site/posts/d0e8ee80.html</id>
+    <published>2021-07-06T14:26:43.000Z</published>
+    <updated>2021-07-06T14:26:43.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ElasticSearch 批量操作&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#ElasticSearch 批量操作&quot;&gt;¶&lt;/a&gt; ElasticSearch
+        
+      
+    
+    </summary>
+    
+    
+      <category term="BigData" scheme="https://mikelucis.site/categories/BigData/"/>
+    
+    
+      <category term="ElasticSearch" scheme="https://mikelucis.site/tags/ElasticSearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ElasticSearch-索引映射</title>
+    <link href="https://mikelucis.site/posts/8486b8a.html"/>
+    <id>https://mikelucis.site/posts/8486b8a.html</id>
+    <published>2021-07-04T04:34:29.000Z</published>
+    <updated>2021-07-04T04:34:29.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ElasticSearch 索引映射&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#ElasticSearch 索引映射&quot;&gt;¶&lt;/a&gt; ElasticSearch
+        
+      
+    
+    </summary>
+    
+    
+      <category term="BigData" scheme="https://mikelucis.site/categories/BigData/"/>
+    
+    
+      <category term="ElasticSearch" scheme="https://mikelucis.site/tags/ElasticSearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ElasticSearch-CRUD</title>
+    <link href="https://mikelucis.site/posts/3e437932.html"/>
+    <id>https://mikelucis.site/posts/3e437932.html</id>
+    <published>2021-06-29T16:16:26.000Z</published>
+    <updated>2021-06-29T16:16:26.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ElasticSearch CRUD&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#ElasticSearch CRUD&quot;&gt;¶&lt;/a&gt; ElasticSearch CRUD&lt;/h1&gt;
+&lt;hr&gt;
+&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="BigData" scheme="https://mikelucis.site/categories/BigData/"/>
+    
+    
+      <category term="ElasticSearch" scheme="https://mikelucis.site/tags/ElasticSearch/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode-求字符串全排列</title>
@@ -495,88 +578,6 @@
       <category term="环境配置" scheme="https://mikelucis.site/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
       <category term="Windows" scheme="https://mikelucis.site/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 科目三道路驾驶技能考试重点备注</title>
-    <link href="https://mikelucis.site/posts/774211e.html"/>
-    <id>https://mikelucis.site/posts/774211e.html</id>
-    <published>2020-09-06T09:37:11.000Z</published>
-    <updated>2020-09-06T09:37:11.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;科目三道路驾驶技能考试重点备注&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#科目三道路驾驶技能考试重点备注&quot;&gt;¶&lt;/a&gt; 科目三道路驾驶技能考试重点备注&lt;/h1&gt;
-&lt;img src=&quot;http://x0.ifengimg.com/res/2020/F2BF539D07BB09737749B2B719E45129C9662E60_size394_w1080_h758.jpeg&quot; style=&quot;zoom:50%;&quot; /&gt;
-&lt;h2 id=&quot;项目：（共16项）&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#项目：（共16项）&quot;&gt;¶&lt;/a&gt; &lt;strong&gt;项目&lt;/strong&gt;：（共16项）&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;上车准备、模拟夜间灯光考试、起步、加减挡位操作&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;超车、会车、直线行驶、变更车道、靠边停车、掉头&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;直行通过路口、路口左转弯、路口右转弯&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;通过人行横道线、通过学校区域、通过公共汽车站
-    
-    </summary>
-    
-    
-      <category term="综合素养" scheme="https://mikelucis.site/categories/%E7%BB%BC%E5%90%88%E7%B4%A0%E5%85%BB/"/>
-    
-    
-      <category term="驾驶技能考试" scheme="https://mikelucis.site/tags/%E9%A9%BE%E9%A9%B6%E6%8A%80%E8%83%BD%E8%80%83%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Win10-2004版本更新了什么？</title>
-    <link href="https://mikelucis.site/posts/53837058.html"/>
-    <id>https://mikelucis.site/posts/53837058.html</id>
-    <published>2020-08-13T10:20:03.000Z</published>
-    <updated>2020-08-13T10:20:03.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Win10 2004 版本更新了什么？&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Win10 2004 版本更新了什么？&quot;&gt;¶&lt;/a&gt; Win10 2004 版本更新了什么？&lt;/h1&gt;
-&lt;p&gt;Windows 10 版本 2004（20H1）于2020年春季正式推出；也就是于2020年5月更新的 Win10 新版本，其代号为“ 20H1”（Vibranium）。
-    
-    </summary>
-    
-    
-      <category term="Windows" scheme="https://mikelucis.site/categories/Windows/"/>
-    
-    
-      <category term="系统" scheme="https://mikelucis.site/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="Windows" scheme="https://mikelucis.site/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>i5ting_toc - md转Html</title>
-    <link href="https://mikelucis.site/posts/7624e936.html"/>
-    <id>https://mikelucis.site/posts/7624e936.html</id>
-    <published>2020-07-09T04:26:49.000Z</published>
-    <updated>2020-07-09T04:26:49.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;i5ting_toc - md转Html&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#i5ting_toc - md转Html&quot;&gt;¶&lt;/a&gt; i5ting_toc - md转Html&lt;/h1&gt;
-&lt;p&gt;众所周知，我一直都在用 Markdown 写文章，这种语言的特性我在之前的 &lt;a href=&quot;&quot;&gt;Markdown技术文档编写规范&lt;/a&gt; 这篇文章里写的很细。&lt;/p&gt;
-&lt;p&gt;是程序猿写文档的宝器！！
-    
-    </summary>
-    
-    
-      <category term="Node.js" scheme="https://mikelucis.site/categories/Node-js/"/>
-    
-    
-      <category term="npm包" scheme="https://mikelucis.site/tags/npm%E5%8C%85/"/>
     
   </entry>
   
