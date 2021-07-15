@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mikelucis.site/"/>
-  <updated>2021-07-06T14:26:43.000Z</updated>
+  <updated>2021-07-10T04:02:33.000Z</updated>
   <id>https://mikelucis.site/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ElasticSearch-匹配查询</title>
+    <link href="https://mikelucis.site/posts/136278aa.html"/>
+    <id>https://mikelucis.site/posts/136278aa.html</id>
+    <published>2021-07-10T04:02:33.000Z</published>
+    <updated>2021-07-10T04:02:33.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ElasticSearch 匹配查询&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#ElasticSearch 匹配查询&quot;&gt;¶&lt;/a&gt; ElasticSearch
+        
+      
+    
+    </summary>
+    
+    
+      <category term="BigData" scheme="https://mikelucis.site/categories/BigData/"/>
+    
+    
+      <category term="ElasticSearch" scheme="https://mikelucis.site/tags/ElasticSearch/"/>
+    
+  </entry>
   
   <entry>
     <title>ElasticSearch-批量操作</title>
@@ -542,42 +569,6 @@
     
     
       <category term="信息检索" scheme="https://mikelucis.site/tags/%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL Server 2019安装实战</title>
-    <link href="https://mikelucis.site/posts/6bf004c2.html"/>
-    <id>https://mikelucis.site/posts/6bf004c2.html</id>
-    <published>2020-11-28T03:41:39.000Z</published>
-    <updated>2020-11-28T03:41:39.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;SQL Server 2019 安装实战&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#SQL Server 2019 安装实战&quot;&gt;¶&lt;/a&gt; SQL Server 2019 安装实战&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;Hi !&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;好久不见。&lt;/em&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;首先照常放出场介绍：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;SQL Server 是Microsoft 公司推出的关系型数据库管理系统。具有使用方便可伸缩性好与相关软件集成程度高等优点，可跨越从运行Microsoft Windows 98 的膝上型电脑到运行Microsoft Windows 2012 的大型多处理器的服务器等多种平台使用。&lt;br&gt;
-——百度百科 [&lt;a href=&quot;https://baike.baidu.com/item/Microsoft%20SQL%20Server?fromtitle=sql+server&amp;amp;fromid=245994&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Microsoft SQL Server&lt;/a&gt;] 词条&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这次我们安装的是微软公司的 SQL Sever 数据库，截至发文前2020年11月27日，目前最新的版本是 2019， 话不多说直接切入正题。
-    
-    </summary>
-    
-    
-      <category term="应用软件" scheme="https://mikelucis.site/categories/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-      <category term="Web" scheme="https://mikelucis.site/tags/Web/"/>
-    
-      <category term="安装配置" scheme="https://mikelucis.site/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="环境配置" scheme="https://mikelucis.site/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="Windows" scheme="https://mikelucis.site/tags/Windows/"/>
     
   </entry>
   

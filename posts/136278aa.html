@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Mike lucis"><title>ElasticSearch-匹配查询 · Mikelucis的技术博客</title><meta name="description" content="¶ ElasticSearch 匹配查询
+
+环境版本:
+ElasticSearch 7.11.1
+注意: 其请求头为:
+Content-Type: application/x-ndjson
+
+¶ 基本查询
+查询当前索引下所有文档
+1GET &amp;#123;&amp;#123;url&amp;#125;&amp;#125;/li"><meta name="keywords" content="技术,博客,Blog,编程,学习,HTML,Python,Linux,基础"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/typography-custom-font.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">保持清醒，不断思考。</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Mike lucis</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/categories">分类</a></li><li><a href="/tags">标签</a></li><li><a href="/关于/index.html">关于</a></li><li><a href="/联系/index.html">联系</a></li><li class="soc"><a href="https://github.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="https://twitter.com/Mikelucis" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter">&nbsp;</i></a><a href="http://weibo.com/u/5026640622" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo">&nbsp;</i></a><a href="https://mikelucis.site/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2021&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p><p>友情链接:&nbsp;<a target="_blank" href="https://veam.top/" rel="noopener noreferrer">Lonely's Bolg</a></p><span><div class="my-face">ღゝ◡╹)ノ♡</div></span><div id="cnzzProtocol"><script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279850191'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279850191%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>ElasticSearch-匹配查询</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2021-07-10</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a href="/categories/BigData/" title="BigData" class="a-tag">BigData</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/ElasticSearch/" title="ElasticSearch" class="a-tag">ElasticSearch</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="ElasticSearch 匹配查询"><a class="header-anchor" href="#ElasticSearch 匹配查询">¶</a> ElasticSearch 匹配查询</h1>
+<blockquote>
+<p>环境版本:<br>
+ElasticSearch 7.11.1</p>
+<p>注意: 其请求头为:<br>
+<code>Content-Type: application/x-ndjson</code></p>
+</blockquote>
+<h2 id="基本查询"><a class="header-anchor" href="#基本查询">¶</a> 基本查询</h2>
+<p>查询当前索引下所有文档</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br></pre></td></tr></table></figure>
+<p>按条件查询所有文档</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/_search?q=title:guide</span><br></pre></td></tr></table></figure>
+<p>按条件查询文档</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search?q=title:guide</span><br><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search?q=name.last:mohan</span><br><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search?q=name.last:*a*</span><br></pre></td></tr></table></figure>
+<p><code>term</code> 查询 (精确查询)</p>
+<blockquote>
+<p>term 查询不会有分析器分析的过程,文档中必须包含整个搜索的词汇</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"term"</span>: &#123;</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"guide"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>terms</code> 查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"term"</span>: &#123;</span><br><span class="line">      <span class="string">"title"</span>: [<span class="string">"elasticsearch"</span>, <span class="string">"kibana"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分页查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># from定义了目标数据的偏移值，size定义当前返回的事件数目</span></span><br><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"from"</span>: 0,</span><br><span class="line">  <span class="string">"size"</span>: 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回版本号 <code>_version</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"from"</span>: 0,</span><br><span class="line">  <span class="string">"size"</span>: 2,</span><br><span class="line">  <span class="string">"version"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="组合查询"><a class="header-anchor" href="#组合查询">¶</a> 组合查询</h2>
+<h3 id="match 查询"><a class="header-anchor" href="#match 查询">¶</a> <code>match</code> 查询</h3>
+<blockquote>
+<p><code>match</code> 查询时，elasticsearch 会根据你给定的字段提供合适的分析器进行分词，比如&quot;宝马多少马力&quot;会被分词为&quot;宝马 多少 马力&quot;, 所有有关&quot;宝马 多少 马力&quot;, 那么所有包含这三个词中的一个或多个的文档就会被搜索出来。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match"</span>: &#123;</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"and"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="match_phrase 查询"><a class="header-anchor" href="#match_phrase 查询">¶</a> <code>match_phrase</code> 查询</h3>
+<blockquote>
+<p><code>match_phrase</code> 上一个例子中，一个文档&quot;我的保时捷马力不错&quot;也会被搜索出来，那么想要精确匹配所有同时包含&quot;宝马 多少 马力&quot;的文档怎么做？就要使用 match_phrase 了, 完全匹配可能比较严，我们会希望有个可调节因子，少匹配一个也满足，那就需要使用到slop。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">   <span class="string">"match_phrase"</span>: &#123;</span><br><span class="line">     <span class="string">"title"</span>: &#123;</span><br><span class="line">       <span class="string">"query"</span>: <span class="string">"Elasticsearch guide"</span>,</span><br><span class="line">    <span class="comment">#    slop 定义的是关键词之间隔多少未知单词</span></span><br><span class="line">       <span class="string">"slop"</span>: 1</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="multi_match 查询"><a class="header-anchor" href="#multi_match 查询">¶</a> <code>multi_match</code> 查询</h3>
+<blockquote>
+<p>如果我们希望两个字段进行匹配，其中一个字段有这个文档就满足的话，使用 <code>multi_match</code></p>
+<p>比如查询 title 和 preview 这两个字段里都包含 elasticsearch 关键词的文档</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"multi_match"</span>: &#123;</span><br><span class="line">      <span class="string">"query"</span>: <span class="string">"elasticsearch"</span>,</span><br><span class="line">      <span class="string">"fields"</span>: [<span class="string">"title"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="指定返回字段"><a class="header-anchor" href="#指定返回字段">¶</a> 指定返回字段</h3>
+<blockquote>
+<p>注意: 只能返回 store 为 yes 的字段</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"># ↓↓↓</span></span><br><span class="line">  <span class="string">"_source"</span>: [<span class="string">"title"</span>],</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match"</span>: &#123;</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"elasticsearch"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="prefix 前缀匹配查询"><a class="header-anchor" href="#prefix 前缀匹配查询">¶</a> <code>prefix</code> 前缀匹配查询</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"prefix"</span>: &#123;</span><br><span class="line">      <span class="string">"title"</span>: &#123;</span><br><span class="line">        <span class="string">"value"</span>: <span class="string">"ela"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="fuzzy 模糊查询"><a class="header-anchor" href="#fuzzy 模糊查询">¶</a> <code>fuzzy</code> 模糊查询</h3>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>查询关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boost</td>
+<td>设置查询的权值，默认为 1.0, 默认为 0.5，对于字符串，取值为 0~1(包含 0 和 1)，对于数值可能大于 1，对于日期型取值为 1d,2d,1m 这样，1d 代表一天</td>
+</tr>
+<tr>
+<td>min_similarity</td>
+<td>设置匹配的最小相似度</td>
+</tr>
+<tr>
+<td>prefix_length</td>
+<td>指明区分词的共同前缀长度，默认是 0</td>
+</tr>
+<tr>
+<td>max_expansions</td>
+<td>指明查询的词项可扩展的数目，默认可以无限大</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"fuzzy"</span>: &#123;</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"ank"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="more_like_this 查询"><a class="header-anchor" href="#more_like_this 查询">¶</a> <code>more_like_this</code> 查询</h3>
+<table>
+<thead>
+<tr>
+<th>fields</th>
+<th>定义字段组。默认是 _all</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>like_text</td>
+<td>定义要查询的关键词</td>
+</tr>
+<tr>
+<td>percent_terms_to_match</td>
+<td>该参数指明一个文档必须匹配多大比例的词项才被视为相似。默认值是 0.3，意思是30%的比例</td>
+</tr>
+<tr>
+<td>min_term_freq</td>
+<td>该参数指明在生成的查询中查询词项的最大数目。默认为 25</td>
+</tr>
+<tr>
+<td>stop_words</td>
+<td>该参数指明将被忽略的单词集合</td>
+</tr>
+<tr>
+<td>min_doc_freq</td>
+<td>该参数指明词项应至少在多少个文档中出现才不会被忽略。默认是 5</td>
+</tr>
+<tr>
+<td>max_doc_freq</td>
+<td>该参数指明出现词项的最大数目。以避免词项被忽略。默认是无限大</td>
+</tr>
+<tr>
+<td>min_word_len</td>
+<td>该参数指明单个单词的最小长度，低于该值的单词将被忽略，默认值是e</td>
+</tr>
+<tr>
+<td>max_word_len</td>
+<td>指明单个单词的最大长度.高于该值的单词将被忽略。默认是无限大</td>
+</tr>
+<tr>
+<td>boost_terms</td>
+<td>该参数指明提升每个单词的权重时使用的权值默认是 1</td>
+</tr>
+<tr>
+<td>boost</td>
+<td>指明提升一个查询的权值。默认是 1.0</td>
+</tr>
+<tr>
+<td>analyer</td>
+<td>指定用于分析的分析器</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/library/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"more_like_this"</span>: &#123;</span><br><span class="line">      <span class="string">"fields"</span>: [</span><br><span class="line">        <span class="string">"title"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"like"</span>: <span class="string">"elasticsearch"</span>,</span><br><span class="line">      <span class="string">"min_term_freq"</span>: 1,</span><br><span class="line">      <span class="string">"max_query_terms"</span>: 12</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="布尔过滤查询"><a class="header-anchor" href="#布尔过滤查询">¶</a> 布尔过滤查询</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"bool"</span>: &#123;</span><br><span class="line">    <span class="string">"must"</span>: [],</span><br><span class="line">    <span class="string">"should"</span>: [],</span><br><span class="line">    <span class="string">"must_not"</span>: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立测试数据</span></span><br><span class="line">POST &#123;&#123;url&#125;&#125;/store/_bulk</span><br><span class="line">&#123;&#123;head_bulk&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">"index"</span>:&#123;<span class="string">"_id"</span>:1&#125;&#125;</span><br><span class="line">&#123;<span class="string">"price"</span>:10,<span class="string">"productID"</span>:<span class="string">"SD1002136"</span>&#125;</span><br><span class="line">&#123;<span class="string">"index"</span>:&#123;<span class="string">"_id"</span>:2&#125;&#125;</span><br><span class="line">&#123;<span class="string">"price"</span>:10,<span class="string">"productID"</span>:<span class="string">"SD2678421"</span>&#125;</span><br><span class="line">&#123;<span class="string">"index"</span>:&#123;<span class="string">"_id"</span>:3&#125;&#125;</span><br><span class="line">&#123;<span class="string">"price"</span>:10,<span class="string">"productID"</span>:<span class="string">"SD8897573"</span>&#125;</span><br><span class="line">&#123;<span class="string">"index"</span>:&#123;<span class="string">"_id"</span>:4&#125;&#125;</span><br><span class="line">&#123;<span class="string">"price"</span>:10,<span class="string">"productID"</span>:<span class="string">"SD4535233"</span>&#125;</span><br><span class="line">&#123;<span class="string">"index"</span>:&#123;<span class="string">"_id"</span>:5&#125;&#125;</span><br><span class="line">&#123;<span class="string">"price"</span>:10,<span class="string">"productID"</span>:<span class="string">"SD4310944"</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最简单 filter 查询</span></span><br><span class="line">GET &#123;&#123;url&#125;&#125;/store/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"should"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"term"</span>: &#123;</span><br><span class="line">            <span class="string">"price"</span>: &#123;</span><br><span class="line">              <span class="string">"value"</span>: <span class="string">"20"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"term"</span>: &#123;</span><br><span class="line">            <span class="string">"productID"</span>: <span class="string">"sd4535233"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"must_not"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"term"</span>: &#123;</span><br><span class="line">            <span class="string">"price"</span>: &#123;</span><br><span class="line">              <span class="string">"value"</span>: <span class="string">"30"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 嵌套查询</span></span><br><span class="line">GET &#123;&#123;url&#125;&#125;/store/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"should"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"term"</span>: &#123;</span><br><span class="line">            <span class="string">"price"</span>: &#123;</span><br><span class="line">              <span class="string">"value"</span>: <span class="string">"10"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"bool"</span>: &#123;</span><br><span class="line">            <span class="string">"must"</span>: [</span><br><span class="line">              &#123;</span><br><span class="line">                <span class="string">"term"</span>: &#123;</span><br><span class="line">                  <span class="string">"productID"</span>: &#123;</span><br><span class="line">                    <span class="string">"value"</span>: <span class="string">"SD4535233"</span></span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="range 范围查询"><a class="header-anchor" href="#range 范围查询">¶</a> <code>range</code> 范围查询</h3>
+<blockquote>
+<p>范围查询用于匹配某些字段的字段值位于特定范围内的文档。Lucene查询的类型依赖于字段的类型，对于字符串字段，是TermRangeQuery，而对于数字/日期字段，查询是NumericRangeQuery。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gte</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>lte</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>lt</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>boost</td>
+<td>设置查询的推动值（boost），默认为1.0</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询price字段大于等于10小于等于20的文档。</span></span><br><span class="line">GET &#123;&#123;url&#125;&#125;/store/_search</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"range"</span>: &#123;</span><br><span class="line">      <span class="string">"price"</span>: &#123;</span><br><span class="line">        <span class="string">"gte"</span>: 10,</span><br><span class="line">        <span class="string">"lte"</span>: 20</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="分析器"><a class="header-anchor" href="#分析器">¶</a> 分析器</h2>
+<p>查看分析器解析的结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/_analyze</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"text"</span>: <span class="string">"SD4310944"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET &#123;&#123;url&#125;&#125;/_analyze</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"text"</span>: [<span class="string">"SD2678421"</span>, <span class="string">"SD1002136"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新建立一个映射，让 productID 处于 not_analyzed 模式</span></span><br><span class="line">PUT &#123;&#123;url&#125;&#125;/store</span><br><span class="line">&#123;&#123;HEAD&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"mappings"</span>: &#123;</span><br><span class="line">    <span class="string">"properties"</span>: &#123;</span><br><span class="line">      <span class="string">"productID"</span>: &#123;</span><br><span class="line">        <span class="string">"type"</span>: <span class="string">"text"</span>,</span><br><span class="line">        <span class="string">"index"</span>: <span class="string">"not_analyzed"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"></p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=https://mikelucis.site/posts/136278aa.html%20Mikelucis的技术博客%20ElasticSearch-匹配查询" target="_blank" rel="noopener" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/posts/d0e8ee80.html" title="ElasticSearch-批量操作">下一篇: ElasticSearch-批量操作&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2021&nbsp;<a target="_blank" href="https://mikelucis.site" rel="noopener noreferrer">Mike lucis</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p><p>友情链接:&nbsp;<a target="_blank" href="https://veam.top/" rel="noopener noreferrer">Lonely's Bolg</a></p><span><div class="my-face">ღゝ◡╹)ノ♡</div></span><div id="cnzzProtocol"><script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279850191'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279850191%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
